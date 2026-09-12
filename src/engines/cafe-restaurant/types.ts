@@ -100,11 +100,13 @@ export interface CafeConfig extends BaseClientConfig {
     pickup: boolean;
     tableOrder: boolean;
   };
-  /** Визуальный характер: 'classic' — светлый минимализм, 'night' — тёмный премиум. */
+  /** Оболочка приложения: 'classic' — минималистичный флоу меню → заказ,
+   *  'premium' — со сплэшем, лентой сторис и модулями. Светлая или тёмная
+   *  тема задаётся палитрой (theme.mood), а не пресетом. */
   style?: {
-    preset?: 'classic' | 'night';
+    preset?: 'classic' | 'premium';
     /** Фоновый геометрический орнамент: см. PATTERNS в lib/theme.ts. */
-    pattern?: 'turkish' | 'mountains' | 'grid';
+    pattern?: 'turkish' | 'mountains' | 'checker' | 'grid';
     /** Текст на сплэш-экране под логотипом. */
     splashTagline?: string;
   };

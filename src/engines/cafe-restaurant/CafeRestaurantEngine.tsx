@@ -13,14 +13,14 @@ import type { CafeConfig, CafeMenuItem } from './types';
 
 type Screen = 'menu' | 'item' | 'cart' | 'checkout' | 'success';
 
-/** Точка входа ниши: style.preset выбирает характер приложения. 'night' —
- * тёмный премиум с модулями (сторис, конструктор, бонусы, бронь), 'classic'
- * (по умолчанию) — светлый минималистичный флоу меню → корзина → заказ. */
+/** Точка входа ниши: style.preset выбирает оболочку. 'premium' — со сплэшем,
+ * лентой сторис и модулями (конструктор, бонусы, бронь), 'classic'
+ * (по умолчанию) — минималистичный флоу меню → корзина → заказ. */
 export function CafeRestaurantEngine({ config }: { config: CafeConfig }) {
   useEffect(() => applyTheme(config.theme), [config.theme]);
   useEffect(() => applyPattern(config.style?.pattern), [config.style?.pattern]);
 
-  if (config.style?.preset === 'night') {
+  if (config.style?.preset === 'premium') {
     return <PremiumCafeApp config={config} />;
   }
 

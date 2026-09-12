@@ -1,0 +1,212 @@
+{
+  "clientId": "cafe-main",
+  "niche": "cafe-restaurant",
+  "business": {
+    "name": "Café Main",
+    "tagline": "Завтраки all day, кофе и летняя веранда",
+    "logoUrl": "/clients/cafe-main/logo.png",
+    "heroImageUrl": "/clients/cafe-main/storefront.jpg",
+    "rating": 4.5,
+    "reviews": 1026,
+    "address": "мкр. Самал-2, 80",
+    "etaLabel": "15–25 мин",
+    "hoursLabel": "Ежедневно 8:00 – 22:00",
+    "currency": "₸"
+  },
+  "theme": {
+    "mood": "light",
+    "primary": "#0b4429",
+    "primarySoft": "#dfe9df",
+    "primaryContrast": "#f7f3ea",
+    "accent": "#a97a1b",
+    "imageGradientFrom": "#e4ece2",
+    "imageGradientTo": "#f4e7cd",
+    "bg": "#f8f4ec",
+    "surface": "#ffffff",
+    "surfaceMuted": "#f1ebe0",
+    "textPrimary": "#1b1a17",
+    "textMuted": "#6d675d",
+    "border": "#e4dccd"
+  },
+  "style": {
+    "preset": "premium",
+    "pattern": "checker",
+    "splashTagline": "Утро начинается правильно"
+  },
+  "features": {
+    "delivery": false,
+    "pickup": true,
+    "tableOrder": true
+  },
+  "modules": {
+    "stories": [
+      {
+        "id": "hello",
+        "title": "Café Main",
+        "imageUrl": "/clients/cafe-main/storefront.jpg",
+        "headline": "Кафе на Самал-2",
+        "text": "Завтраки весь день, кофе с собой и веранда с панорамным видом — ежедневно с 8:00 до 22:00.",
+        "ctaLabel": "Смотреть меню",
+        "ctaTarget": "menu"
+      },
+      {
+        "id": "combo",
+        "title": "Комбо",
+        "imageUrl": "/clients/cafe-main/combo-poster.jpg",
+        "headline": "Кофе + сэндвич за 1 990 ₸",
+        "text": "Комбо на утро действует каждый день с 8:00 до 12:00.",
+        "ctaLabel": "Взять комбо",
+        "ctaTarget": "menu"
+      },
+      {
+        "id": "matcha",
+        "title": "Ice Matcha",
+        "imageUrl": "/clients/cafe-main/matcha.jpg",
+        "headline": "Сезон фирменной Ice Matcha",
+        "text": "Холодная матча в стакане Café Main — с собой или на веранде.",
+        "ctaLabel": "Копить штампы",
+        "ctaTarget": "loyalty"
+      },
+      {
+        "id": "village",
+        "title": "Завтраки",
+        "imageUrl": "/clients/cafe-main/breakfast-village.jpg",
+        "headline": "Сытный завтрак для неспешного утра",
+        "text": "Три яйца, говяжья ветчина, жареный картофель, шампиньоны и зернистая горчица.",
+        "ctaLabel": "Собрать свой завтрак",
+        "ctaTarget": "builder"
+      },
+      {
+        "id": "grill",
+        "title": "Гриль",
+        "imageUrl": "/clients/cafe-main/steak.jpg",
+        "headline": "Стейк с чимичурри",
+        "text": "Гриль-меню, авторские коктейли и винная карта — на вечер.",
+        "ctaLabel": "Забронировать стол",
+        "ctaTarget": "booking"
+      }
+    ],
+    "builder": {
+      "title": "Собери свой завтрак",
+      "subtitle": "Классический завтрак: яйца и добавка на ваш вкус",
+      "itemName": "Завтрак по-вашему",
+      "basePrice": 1990,
+      "imageUrl": "/clients/cafe-main/breakfast-salmon.jpg",
+      "steps": [
+        {
+          "id": "eggs",
+          "label": "Яйца",
+          "hint": "приготовим так, как любите",
+          "type": "single",
+          "options": [
+            { "id": "scramble", "label": "Скрэмбл", "price": 0 },
+            { "id": "omelette", "label": "Омлет", "price": 0 },
+            { "id": "fried", "label": "Глазунья", "price": 0 }
+          ]
+        },
+        {
+          "id": "extra",
+          "label": "Добавка",
+          "hint": "выберите одно",
+          "type": "single",
+          "options": [
+            { "id": "none", "label": "Без добавки", "price": 0, "hint": "салат, черри, огурцы и тартин" },
+            { "id": "ham", "label": "Домашняя ветчина из говядины", "price": 600 },
+            { "id": "pastrami", "label": "Пастрами из конины", "price": 800 },
+            { "id": "salmon", "label": "Подкопчённый лосось", "price": 1200 }
+          ]
+        }
+      ]
+    },
+    "loyalty": {
+      "title": "Кофейная карта",
+      "subtitle": "Штамп за каждый заказ из приложения",
+      "stampsRequired": 6,
+      "rewardLabel": "Кофе в подарок",
+      "demoStamps": 4
+    },
+    "booking": {
+      "title": "Бронь стола",
+      "subtitle": "Летняя веранда с панорамным видом и основной зал",
+      "timeSlots": ["09:00", "10:00", "11:00", "13:00", "14:00", "18:00", "19:00", "20:00"],
+      "zones": [
+        {
+          "id": "veranda",
+          "name": "Летняя веранда",
+          "hint": "Столики на улице, панорамный вид",
+          "tables": [
+            { "id": "v1", "label": "Стол 1", "seats": 2, "kind": "table" },
+            { "id": "v2", "label": "Стол 2", "seats": 2, "kind": "table", "busy": true },
+            { "id": "v3", "label": "Стол 3", "seats": 4, "kind": "table" },
+            { "id": "v4", "label": "Стол 4", "seats": 4, "kind": "table" },
+            { "id": "v5", "label": "Стол 5", "seats": 4, "kind": "table", "busy": true },
+            { "id": "v6", "label": "Стол 6", "seats": 6, "kind": "table" }
+          ]
+        },
+        {
+          "id": "hall",
+          "name": "Основной зал",
+          "hint": "У панорамных окон и за барной стойкой",
+          "tables": [
+            { "id": "h1", "label": "Стол 1", "seats": 2, "kind": "table" },
+            { "id": "h2", "label": "Стол 2", "seats": 2, "kind": "table" },
+            { "id": "h3", "label": "Стол 3", "seats": 4, "kind": "table", "busy": true },
+            { "id": "h4", "label": "Стол 4", "seats": 4, "kind": "table" },
+            { "id": "h5", "label": "Стол 5", "seats": 6, "kind": "table" },
+            { "id": "h6", "label": "Бар 1", "seats": 2, "kind": "vip" },
+            { "id": "h7", "label": "Бар 2", "seats": 2, "kind": "vip" },
+            { "id": "h8", "label": "Диван", "seats": 8, "kind": "vip" }
+          ]
+        }
+      ]
+    }
+  },
+  "categories": ["Завтраки", "Комбо до 12:00"],
+  "items": [
+    {
+      "id": "main-salmon",
+      "category": "Завтраки",
+      "name": "Фирменный завтрак Main",
+      "desc": "Тартин с хумусом из нута, хрустящий салат, спелые томаты и воздушный солёный мусс. С подкопчённым лососем и яйцами на выбор",
+      "price": 4590,
+      "imageUrl": "/clients/cafe-main/breakfast-salmon.jpg",
+      "featured": true,
+      "badge": "Хит"
+    },
+    {
+      "id": "village",
+      "category": "Завтраки",
+      "name": "Деревенский завтрак",
+      "desc": "Золотистый картофель с грибами, глазунья из трёх яиц, маринованные огурцы и зернистая горчица",
+      "price": 2490,
+      "imageUrl": "/clients/cafe-main/breakfast-village.jpg",
+      "featured": true
+    },
+    {
+      "id": "mindful",
+      "category": "Завтраки",
+      "name": "Завтрак осознанного человека",
+      "desc": "Салатный микс с бобами эдамаме, спелыми томатами и огурцами, обжаренные креветки, два яйца и солёный мусс",
+      "price": 4290,
+      "imageUrl": "/clients/cafe-main/breakfast-edamame.jpg"
+    },
+    {
+      "id": "combo-sandwich",
+      "category": "Комбо до 12:00",
+      "name": "Кофе + сэндвич",
+      "desc": "Свежий сэндвич на зерновом хлебе и кофе на выбор. Каждый день с 8:00 до 12:00",
+      "price": 1990,
+      "imageUrl": "/clients/cafe-main/sandwich.jpg",
+      "featured": true,
+      "badge": "до 12:00"
+    },
+    {
+      "id": "combo-croissant",
+      "category": "Комбо до 12:00",
+      "name": "Кофе + круассан",
+      "desc": "Слоёный круассан с начинкой и кофе на выбор. Каждый день с 8:00 до 12:00",
+      "price": 2190,
+      "imageUrl": "/clients/cafe-main/croissant.jpg"
+    }
+  ]
+}

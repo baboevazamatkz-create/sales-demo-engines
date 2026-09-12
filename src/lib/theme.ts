@@ -94,6 +94,11 @@ const PATTERNS: Record<string, { image: string; size: string }> = {
       repeating-linear-gradient(-62deg, color-mix(in srgb, var(--color-accent) 9%, transparent) 0 1.2px, transparent 1.2px 30px)`,
     size: '34px 30px',
   },
+  // Шахматка — как в айдентике кафе с клетчатой рамкой.
+  checker: {
+    image: `repeating-conic-gradient(color-mix(in srgb, var(--color-primary) 6%, transparent) 0% 25%, transparent 0% 50%)`,
+    size: '44px 44px',
+  },
   // Ровная сетка — для нейтральных, «городских» брендов.
   grid: {
     image: `linear-gradient(color-mix(in srgb, var(--color-accent) 8%, transparent) 1px, transparent 1px),

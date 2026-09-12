@@ -15,11 +15,15 @@ const DURATION = 5200;
 export function HeroStories({
   stories,
   business,
+  mood,
   onCta,
   onExpand,
 }: {
   stories: CafeStory[];
   business: BusinessInfo;
+  /** Подпись кадра лежит на подложке цвета фона приложения, поэтому в
+   *  светлой теме текст должен быть тёмным — белый на ней не читается. */
+  mood?: 'light' | 'dark';
   onCta?: (story: CafeStory) => void;
   onExpand?: (index: number) => void;
 }) {
@@ -66,6 +70,9 @@ export function HeroStories({
   if (!story) return null;
 
   const fitClass = contain[story.id] ? 'object-contain' : 'object-cover';
+  const dark = mood !== 'light';
+  const headlineClass = dark ? 'text-white' : 'text-main';
+  const textClass = dark ? 'text-white/75' : 'text-muted';
 
   return (
     <div ref={boxRef} className="relative h-[66vh] min-h-[440px] overflow-hidden bg-black select-none">
@@ -156,10 +163,10 @@ export function HeroStories({
 
       <div className="absolute left-0 right-0 bottom-0 p-5 pb-6 z-20 pointer-events-none">
         <span className="text-[10px] uppercase tracking-[0.28em] text-accent">{story.title}</span>
-        <h2 className="font-display text-[1.7rem] leading-[1.12] text-white mt-2 text-balance">
+        <h2 className={`font-display text-[1.7rem] leading-[1.12] mt-2 text-balance ${headlineClass}`}>
           {story.headline ?? business.name}
         </h2>
-        {story.text && <p className="text-white/75 text-sm leading-snug mt-2 line-clamp-3">{story.text}</p>}
+        {story.text && <p className={`text-sm leading-snug mt-2 line-clamp-3 ${textClass}`}>{story.text}</p>}
         {story.ctaLabel && onCta && (
           <button
             onClick={() => onCta(story)}

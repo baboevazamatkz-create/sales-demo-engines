@@ -27,7 +27,13 @@ export function HomeScreen({
   return (
     <div className="h-full overflow-y-auto no-scrollbar pb-32 bg-app">
       {stories.length > 0 ? (
-        <HeroStories stories={stories} business={business} onCta={onStoryCta} onExpand={onOpenStory} />
+        <HeroStories
+          stories={stories}
+          business={business}
+          mood={config.theme.mood}
+          onCta={onStoryCta}
+          onExpand={onOpenStory}
+        />
       ) : (
         <div className="relative h-[52vh] min-h-[340px] overflow-hidden">
           <ProductImage
