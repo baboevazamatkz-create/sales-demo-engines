@@ -7,13 +7,26 @@ import { CartScreen } from './CartScreen';
 import { CheckoutScreen } from './CheckoutScreen';
 import { SuccessScreen } from './SuccessScreen';
 import { getAvailableModes } from './orderModes';
+import { PremiumCafeApp } from './premium/PremiumCafeApp';
 import type { OrderMode } from './orderModes';
 import type { CafeConfig, CafeMenuItem } from './types';
 
 type Screen = 'menu' | 'item' | 'cart' | 'checkout' | 'success';
 
+/** Точка входа ниши: style.preset выбирает характер приложения. 'night' —
+ * тёмный премиум с модулями (сторис, конструктор, бонусы, бронь), 'classic'
+ * (по умолчанию) — светлый минималистичный флоу меню → корзина → заказ. */
 export function CafeRestaurantEngine({ config }: { config: CafeConfig }) {
   useEffect(() => applyTheme(config.theme), [config.theme]);
+
+  if (config.style?.preset === 'night') {
+    return <PremiumCafeApp config={config} />;
+  }
+
+  return <ClassicCafeApp config={config} />;
+}
+
+function ClassicCafeApp({ config }: { config: CafeConfig }) {
 
   const [screen, setScreen] = useState<Screen>('menu');
   const [activeCategory, setActiveCategory] = useState(config.categories[0]);

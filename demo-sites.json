@@ -1,0 +1,15 @@
+{
+  "_comment": "Живые демо-ссылки. Каждый клиент публикуется в своей папке на GitHub Pages и открывается сразу в приложение, без галереи. Отсюда ссылки берутся для отправки клиенту, и по ним же workflow verify-deploy проверяет, что выкатилась свежая версия.",
+  "sites": [
+    {
+      "client": "bereket",
+      "name": "Bereket — донер и турецкая кухня",
+      "url": "https://baboevazamatkz-create.github.io/sales-demo-engines/bereket/"
+    },
+    {
+      "client": "gallery",
+      "name": "Галерея всех демо (для внутреннего показа)",
+      "url": "https://baboevazamatkz-create.github.io/sales-demo-engines/"
+    }
+  ]
+}

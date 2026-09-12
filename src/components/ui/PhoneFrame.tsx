@@ -9,9 +9,9 @@ import type { ReactNode } from 'react';
  */
 export function PhoneFrame({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen bg-stone-50 flex justify-center py-6 px-3">
+    <div className="min-h-screen bg-app flex justify-center py-6 px-3">
       <div
-        className="w-full max-w-sm bg-white rounded-[2rem] shadow-xl overflow-hidden border border-stone-200 relative"
+        className="w-full max-w-sm bg-surface rounded-[2rem] shadow-2xl overflow-hidden border border-line relative"
         style={{ minHeight: 700 }}
       >
         {children}

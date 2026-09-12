@@ -4,6 +4,9 @@ import { Gallery } from '@/components/Gallery';
 import { PhoneFrame } from '@/components/ui/PhoneFrame';
 import { getClient, listClients } from '@/lib/clientRegistry';
 import { isStandalone } from '@/lib/platform';
+import { applyBranding } from '@/lib/branding';
+import { setupPwa } from '@/lib/pwa';
+import { AppViewport } from '@/components/ui/AppViewport';
 
 // A build-time-locked client (VITE_CLIENT=<id> npm run build) skips the
 // gallery entirely and always boots straight into that client — this is
@@ -42,26 +45,39 @@ export default function App() {
 
   const config = selectedId ? getClient(selectedId) : undefined;
 
+  useEffect(() => {
+    if (!config) return;
+    applyBranding(config.business.name, config.business.logoUrl);
+    setupPwa(config);
+  }, [config]);
+
   if (!config) {
     return <Gallery clients={listClients()} onSelect={selectClient} />;
   }
 
-  const framed = !isStandalone();
+  // Ссылка, которую отправляют клиенту (сборка под одного клиента), и
+  // нативная обёртка Capacitor открываются во весь экран — без рамки,
+  // чтобы это читалось как приложение, а не как страница с картинкой.
+  // Рамка остаётся только в режиме галереи, когда демо просматривают
+  // несколько штук подряд.
+  const framed = !LOCKED_CLIENT_ID && !isStandalone();
 
   if (!framed) {
-    return <EngineHost config={config} />;
+    return (
+      <AppViewport>
+        <EngineHost config={config} />
+      </AppViewport>
+    );
   }
 
   return (
     <PhoneFrame>
-      {!LOCKED_CLIENT_ID && (
-        <button
-          onClick={backToGallery}
-          className="absolute top-3 left-1/2 -translate-x-1/2 z-10 text-[11px] text-stone-500 bg-white/90 backdrop-blur px-3 py-1 rounded-full shadow"
-        >
-          ← Все демо
-        </button>
-      )}
+      <button
+        onClick={backToGallery}
+        className="absolute top-3 left-1/2 -translate-x-1/2 z-10 text-[11px] text-muted bg-surface/90 backdrop-blur px-3 py-1 rounded-full shadow"
+      >
+        ← Все демо
+      </button>
       <EngineHost config={config} />
     </PhoneFrame>
   );

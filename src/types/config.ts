@@ -19,6 +19,21 @@ export interface BrandTheme {
   /** Placeholder image gradient (used when a product has no photo). */
   imageGradientFrom: string;
   imageGradientTo: string;
+
+  /** 'dark' flips the whole app shell to a dark premium look. */
+  mood?: 'light' | 'dark';
+  /** App background; sensible defaults are derived from `mood`. */
+  bg?: string;
+  /** Cards, sheets, raised blocks. */
+  surface?: string;
+  /** Inputs, chips, secondary blocks. */
+  surfaceMuted?: string;
+  /** Main body text. */
+  textPrimary?: string;
+  /** Secondary text, captions. */
+  textMuted?: string;
+  /** Hairlines and card outlines. */
+  border?: string;
 }
 
 export interface BusinessInfo {
@@ -31,6 +46,8 @@ export interface BusinessInfo {
   etaLabel?: string;
   rating?: number;
   reviews?: number;
+  /** Крупное фото для hero-экрана премиум-пресета. */
+  heroImageUrl?: string;
 }
 
 export interface BaseClientConfig {

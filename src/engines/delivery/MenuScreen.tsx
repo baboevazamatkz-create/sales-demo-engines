@@ -4,6 +4,7 @@ import { ProductImage } from '@/components/ui/ProductImage';
 import { StickyCTA } from '@/components/ui/StickyCTA';
 import { formatPrice } from '@/lib/format';
 import type { DeliveryConfig, DeliveryMenuItem } from './types';
+import { asset } from '@/lib/asset';
 
 export function MenuScreen({
   config,
@@ -28,7 +29,7 @@ export function MenuScreen({
       <div className="bg-brand text-brand-contrast px-5 pt-7 pb-5 rounded-b-[1.75rem]">
         <div className="flex items-center gap-3">
           {business.logoUrl && (
-            <img src={business.logoUrl} alt={business.name} className="w-10 h-10 rounded-full object-cover" />
+            <img src={asset(business.logoUrl)} alt={business.name} className="w-10 h-10 rounded-full object-cover" />
           )}
           <div>
             <h1 className="text-2xl font-serif">{business.name}</h1>

@@ -1,0 +1,259 @@
+{
+  "clientId": "bereket",
+  "niche": "cafe-restaurant",
+  "business": {
+    "name": "Bereket",
+    "tagline": "Донер и турецкая кухня в центре Алматы",
+    "logoUrl": "/clients/bereket/logo.jpg",
+    "heroImageUrl": "/clients/bereket/doner-spit.jpg",
+    "rating": 4.8,
+    "reviews": 3026,
+    "address": "мкр. Самал-2, 98/1, ТЦ Life Town",
+    "etaLabel": "Круглосуточно",
+    "currency": "₸"
+  },
+  "theme": {
+    "mood": "dark",
+    "primary": "#6b1f2a",
+    "primarySoft": "#e8d5a8",
+    "primaryContrast": "#fdf8ee",
+    "accent": "#c9a04a",
+    "imageGradientFrom": "#3b2226",
+    "imageGradientTo": "#6b1f2a",
+    "bg": "#130c0d",
+    "surface": "#1d1415",
+    "surfaceMuted": "#271b1d",
+    "textPrimary": "#f7f1e8",
+    "textMuted": "#a4948b",
+    "border": "#342528"
+  },
+  "style": {
+    "preset": "night",
+    "pattern": "turkish",
+    "splashTagline": "Истинный вкус Турции"
+  },
+  "features": {
+    "delivery": true,
+    "pickup": true,
+    "tableOrder": true
+  },
+  "modules": {
+    "stories": [
+      {
+        "id": "combo",
+        "title": "Комплексный обед",
+        "imageUrl": "/clients/bereket/combo-lunch.jpg",
+        "headline": "Комплексный обед за 4 000 ₸",
+        "text": "Каждый день с 11:00 до 15:00 — суп, горячее, салат и напиток.",
+        "ctaLabel": "Смотреть меню"
+      },
+      {
+        "id": "doner",
+        "title": "Донер на вертеле",
+        "imageUrl": "/clients/bereket/doner-spit.jpg",
+        "headline": "Мясо на вертеле с самого утра",
+        "text": "Только отборная говядина и баранина, никакого фарша.",
+        "ctaLabel": "Заказать донер"
+      },
+      {
+        "id": "chef",
+        "title": "Наша кухня",
+        "imageUrl": "/clients/bereket/chef-fire.jpg",
+        "headline": "Турецкие повара у открытого огня",
+        "text": "Готовим по традиционным рецептам уже 10 лет."
+      },
+      {
+        "id": "night",
+        "title": "Работаем 24/7",
+        "imageUrl": "/clients/bereket/storefront.jpg",
+        "headline": "Открыто круглосуточно",
+        "text": "Завтрак в 7 утра или кебаб в 3 ночи — мы всегда открыты."
+      }
+    ],
+    "builder": {
+      "title": "Собери свой донер",
+      "subtitle": "Выберите основу, мясо и соусы — цена посчитается сама",
+      "itemName": "Донер по-вашему",
+      "basePrice": 1800,
+      "imageUrl": "/clients/bereket/doner-spit.jpg",
+      "steps": [
+        {
+          "id": "base",
+          "label": "Основа",
+          "hint": "выберите одно",
+          "type": "single",
+          "options": [
+            { "id": "lavash", "label": "Тонкий лаваш", "price": 0, "hint": "классика по-турецки" },
+            { "id": "bread", "label": "Турецкий хлеб", "price": 200, "hint": "плотнее и сытнее" },
+            { "id": "plate", "label": "На тарелке с рисом", "price": 600, "hint": "порция с гарниром" }
+          ]
+        },
+        {
+          "id": "meat",
+          "label": "Мясо",
+          "hint": "выберите одно",
+          "type": "single",
+          "options": [
+            { "id": "beef", "label": "Говядина", "price": 0 },
+            { "id": "chicken", "label": "Курица", "price": 0 },
+            { "id": "mix", "label": "Микс говядина + курица", "price": 300 },
+            { "id": "lamb", "label": "Баранина", "price": 500 }
+          ]
+        },
+        {
+          "id": "size",
+          "label": "Размер",
+          "hint": "выберите одно",
+          "type": "single",
+          "options": [
+            { "id": "standard", "label": "Стандарт", "price": 0, "hint": "≈ 300 г" },
+            { "id": "xl", "label": "XL — двойное мясо", "price": 900, "hint": "≈ 450 г" }
+          ]
+        },
+        {
+          "id": "sauce",
+          "label": "Соусы",
+          "hint": "можно до 3",
+          "type": "multi",
+          "max": 3,
+          "options": [
+            { "id": "garlic", "label": "Чесночный", "price": 0 },
+            { "id": "spicy", "label": "Острый ачы", "price": 0 },
+            { "id": "bbq", "label": "Барбекю", "price": 0 },
+            { "id": "cheese", "label": "Сырный", "price": 250 }
+          ]
+        },
+        {
+          "id": "extras",
+          "label": "Добавки",
+          "hint": "можно несколько",
+          "type": "multi",
+          "options": [
+            { "id": "veg", "label": "Овощи и зелень", "price": 0 },
+            { "id": "pickles", "label": "Маринованные огурцы", "price": 0 },
+            { "id": "fries", "label": "Картофель фри внутрь", "price": 400 },
+            { "id": "jalapeno", "label": "Халапеньо", "price": 250 }
+          ]
+        }
+      ]
+    },
+    "loyalty": {
+      "title": "Карта гостя",
+      "subtitle": "Копите штампы за заказы в приложении",
+      "stampsRequired": 6,
+      "rewardLabel": "Донер в подарок",
+      "demoStamps": 4
+    },
+    "booking": {
+      "title": "Бронь стола",
+      "subtitle": "Основной зал и 26 VIP-кабин — выберите место на схеме",
+      "timeSlots": ["12:00", "13:00", "14:00", "18:00", "19:00", "20:00", "21:00", "22:00"],
+      "zones": [
+        {
+          "id": "hall",
+          "name": "Основной зал",
+          "hint": "Столы у окна и в центре зала",
+          "tables": [
+            { "id": "h1", "label": "Стол 1", "seats": 2, "kind": "table" },
+            { "id": "h2", "label": "Стол 2", "seats": 2, "kind": "table", "busy": true },
+            { "id": "h3", "label": "Стол 3", "seats": 4, "kind": "table" },
+            { "id": "h4", "label": "Стол 4", "seats": 4, "kind": "table" },
+            { "id": "h5", "label": "Стол 5", "seats": 4, "kind": "table", "busy": true },
+            { "id": "h6", "label": "Стол 6", "seats": 6, "kind": "table" },
+            { "id": "h7", "label": "Стол 7", "seats": 6, "kind": "table" },
+            { "id": "h8", "label": "Стол 8", "seats": 8, "kind": "table" }
+          ]
+        },
+        {
+          "id": "vip",
+          "name": "VIP-кабины",
+          "hint": "Закрытые кабины на 4–10 гостей",
+          "tables": [
+            { "id": "v1", "label": "Кабина 1", "seats": 4, "kind": "vip" },
+            { "id": "v2", "label": "Кабина 2", "seats": 4, "kind": "vip" },
+            { "id": "v3", "label": "Кабина 3", "seats": 6, "kind": "vip", "busy": true },
+            { "id": "v4", "label": "Кабина 4", "seats": 6, "kind": "vip" },
+            { "id": "v5", "label": "Кабина 5", "seats": 6, "kind": "vip" },
+            { "id": "v6", "label": "Кабина 6", "seats": 8, "kind": "vip" },
+            { "id": "v7", "label": "Кабина 7", "seats": 8, "kind": "vip", "busy": true },
+            { "id": "v8", "label": "Кабина 8", "seats": 10, "kind": "vip" }
+          ]
+        }
+      ]
+    }
+  },
+  "categories": ["Донеры", "Мясные блюда", "Паста", "Закуски", "Комплексные обеды"],
+  "items": [
+    {
+      "id": "doner-turkish",
+      "category": "Донеры",
+      "name": "Турецкий донер",
+      "desc": "Мраморная говядина на вертеле, тонкий лаваш, свежие овощи, фирменный соус",
+      "price": 2500,
+      "imageUrl": "/clients/bereket/doner-spit.jpg",
+      "featured": true,
+      "badge": "Хит"
+    },
+    {
+      "id": "kebab-chopped",
+      "category": "Мясные блюда",
+      "name": "Мелко нарезанный кебаб",
+      "desc": "Сочный кебаб из отборной говядины — больше сочности, больше аромата и идеальная текстура",
+      "price": 3900,
+      "imageUrl": "/clients/bereket/kebab-plate.jpg",
+      "featured": true
+    },
+    {
+      "id": "meat-pan",
+      "category": "Мясные блюда",
+      "name": "Мясное ассорти на сковороде",
+      "desc": "Мраморная говядина гриль с болгарским перцем и луком, подаётся на раскалённой сковороде",
+      "price": 5500,
+      "imageUrl": "/clients/bereket/meat-pan.jpg"
+    },
+    {
+      "id": "tbone-steak",
+      "category": "Мясные блюда",
+      "name": "Стейк Т-бон",
+      "desc": "Стейк на кости с печёной тыквой, брокколи и цветной капустой",
+      "price": 7500,
+      "imageUrl": "/clients/bereket/tbone-steak.jpg",
+      "featured": true,
+      "badge": "Премиум"
+    },
+    {
+      "id": "pasta-meat",
+      "category": "Паста",
+      "name": "Паста с мясом",
+      "desc": "Сливочная паста с кусочками мяса, подаётся со свежей зеленью",
+      "price": 3190,
+      "imageUrl": "/clients/bereket/pasta.jpg"
+    },
+    {
+      "id": "chicken-schnitzel",
+      "category": "Закуски",
+      "name": "Шницель из курицы",
+      "desc": "Хрустящий куриный шницель, подаётся с томатом",
+      "price": 2190,
+      "imageUrl": "/clients/bereket/shnitzel.jpg"
+    },
+    {
+      "id": "borek",
+      "category": "Закуски",
+      "name": "Сигара Борек",
+      "desc": "Хрустящие турецкие роллы с начинкой, подаются с томатом",
+      "price": 1990,
+      "imageUrl": "/clients/bereket/borek.jpg"
+    },
+    {
+      "id": "combo-lunch",
+      "category": "Комплексные обеды",
+      "name": "Комплексный обед",
+      "desc": "Каждый день с 11:00 до 15:00 — сытный обед по фиксированной цене",
+      "price": 4000,
+      "imageUrl": "/clients/bereket/combo-lunch.jpg",
+      "featured": true,
+      "badge": "11:00–15:00"
+    }
+  ]
+}

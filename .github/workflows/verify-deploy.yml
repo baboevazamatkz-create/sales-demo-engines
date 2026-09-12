@@ -1,0 +1,102 @@
+# Открывает живые демо-ссылки после пуша и проверяет, что Netlify выкатил
+# именно этот коммит. Раннер GitHub ходит в интернет напрямую, поэтому
+# результат этого workflow — единственный способ подтвердить, что ссылка
+# действительно работает, не открывая её руками.
+name: Verify deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  verify:
+    name: Проверить живые ссылки
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Дождаться выката и проверить версию
+        env:
+          EXPECTED_SHA: ${{ github.sha }}
+        run: |
+          set -uo pipefail
+
+          if [ ! -f demo-sites.json ]; then
+            echo "::warning::demo-sites.json отсутствует — нечего проверять"
+            exit 0
+          fi
+
+          count=$(jq '.sites | length' demo-sites.json)
+          if [ "$count" -eq 0 ]; then
+            echo "::warning::В demo-sites.json нет ни одного сайта"
+            exit 0
+          fi
+
+          failed=0
+          echo "## Демо-ссылки" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          for i in $(seq 0 $((count - 1))); do
+            url=$(jq -r ".sites[$i].url" demo-sites.json)
+            client=$(jq -r ".sites[$i].client" demo-sites.json)
+            name=$(jq -r ".sites[$i].name // .sites[$i].client" demo-sites.json)
+
+            echo "--- Проверяю $client: $url"
+            ok=""
+            live_sha=""
+            status=""
+            diag=""
+
+            # Netlify собирает ~1-2 минуты; ждём максимум 6.
+            for attempt in $(seq 1 24); do
+              # -L идёт по редиректам, -w отдаёт код ответа отдельной строкой:
+              # без кода «сайт лежит» и «сайт жив, но без штампа» выглядели
+              # одинаково, и проверка врала про недоступность.
+              response=$(curl -sSL --max-time 20 -A 'deploy-verifier' -w '\nHTTP_STATUS:%{http_code}' "$url" 2>/dev/null || true)
+              status=$(printf '%s' "$response" | tail -1 | sed 's/^HTTP_STATUS://')
+              body=$(printf '%s' "$response" | sed '$d')
+
+              if [ -z "$status" ] || [ "$status" = "000" ]; then
+                diag="сайт не отвечает (соединение не установлено)"
+              elif [ "$status" -ge 400 ] 2>/dev/null; then
+                diag="сайт отвечает кодом $status"
+                # 401/403 — обычно включённая на хостинге защита доступа.
+                # Печатаем один раз, что именно её просит, иначе непонятно,
+                # какую настройку выключать.
+                if [ "$attempt" = "1" ] && { [ "$status" = "401" ] || [ "$status" = "403" ]; }; then
+                  echo "      заголовки ответа:"
+                  curl -sSIL --max-time 20 -A 'deploy-verifier' "$url" 2>/dev/null \
+                    | grep -iE '^(www-authenticate|x-nf-|server|location):' | sed 's/^/      /' || true
+                  echo "      начало тела ответа:"
+                  printf '%s' "$body" | head -c 300 | tr '\n' ' ' | sed 's/^/      /'
+                  echo ""
+                fi
+              else
+                live_sha=$(printf '%s' "$body" | grep -o 'name="build-sha" content="[^"]*"' | head -1 | sed 's/.*content="//; s/"$//')
+                if [ "$live_sha" = "$EXPECTED_SHA" ]; then
+                  ok="yes"
+                  break
+                elif [ -z "$live_sha" ]; then
+                  diag="код $status, но штампа версии в странице нет — значит выложена сборка старее, чем этот механизм, либо VITE_BUILD_SHA не долетел до сборки"
+                else
+                  diag="код $status, на сайте версия ${live_sha:0:7}, ждём ${EXPECTED_SHA:0:7}"
+                fi
+              fi
+
+              echo "    попытка $attempt: $diag"
+              sleep 15
+            done
+
+            if [ -n "$ok" ]; then
+              echo "RESULT $client OK $url"
+              echo "- ✅ **$name** — [$url]($url) (коммит ${EXPECTED_SHA:0:7})" >> "$GITHUB_STEP_SUMMARY"
+            else
+              failed=1
+              echo "RESULT $client FAIL $url — $diag"
+              echo "- ❌ **$name** — [$url]($url): $diag" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
+
+          exit $failed

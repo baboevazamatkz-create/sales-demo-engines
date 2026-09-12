@@ -1,8 +1,11 @@
-# Publishes the demo gallery to GitHub Pages.
+# Публикует демо на GitHub Pages.
 #
-# One-time setup, done by hand: Settings -> Pages -> Source must be set to
-# "GitHub Actions". The default GITHUB_TOKEN cannot enable the Pages site
-# itself, so there's no point trying to automate that step.
+# Собирается не одна страница, а несколько: галерея в корне (для себя) и
+# отдельная страница под каждого клиента в своей папке. Клиенту уходит
+# ссылка вида /sales-demo-engines/<клиент>/ — она открывается сразу в его
+# приложение, без галереи и без следов других клиентов.
+#
+# Разовая настройка руками: Settings -> Pages -> Source = "GitHub Actions".
 name: Deploy web app
 
 on:
@@ -20,9 +23,12 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
+env:
+  BASE_PATH: /sales-demo-engines
+
 jobs:
   build:
-    name: Build gallery
+    name: Собрать галерею и страницы клиентов
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -35,19 +41,39 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Pages serves a project site at /<repo>/, so the base path has to
-      # match or every asset request 404s.
-      - name: Build gallery
+      - name: Собрать галерею
         env:
-          VITE_BASE: /sales-demo-engines/
-        run: npm run build
+          VITE_BASE: ${{ env.BASE_PATH }}/
+          VITE_BUILD_SHA: ${{ github.sha }}
+        run: |
+          npm run build
+          rm -rf site && mkdir -p site
+          cp -r dist/* site/
+
+      - name: Собрать страницу под каждого клиента
+        env:
+          VITE_BUILD_SHA: ${{ github.sha }}
+        run: |
+          set -e
+          for dir in src/clients/*/; do
+            client=$(basename "$dir")
+            [ "$client" = "_templates" ] && continue
+
+            echo "--- Собираю $client"
+            VITE_CLIENT="$client" VITE_BASE="$BASE_PATH/$client/" npx vite build --outDir "dist-$client"
+            mkdir -p "site/$client"
+            cp -r "dist-$client"/* "site/$client/"
+          done
+
+          echo "Содержимое сайта:"
+          ls -1 site
 
       - name: Disable Jekyll processing
-        run: touch dist/.nojekyll
+        run: touch site/.nojekyll
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: site
 
   deploy:
     name: Deploy to Pages
