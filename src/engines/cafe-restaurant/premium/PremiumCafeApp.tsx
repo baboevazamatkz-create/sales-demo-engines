@@ -12,10 +12,10 @@ import { BookingScreen } from './BookingScreen';
 import { CartScreen } from './CartScreen';
 import { CheckoutScreen } from './CheckoutScreen';
 import { SuccessScreen } from './SuccessScreen';
-import { StoryViewer } from './StoriesBar';
+import { StoryViewer } from './StoryViewer';
 import { builtLineKey, type CafeCartMeta } from './cartLine';
 import { getAvailableModes, type OrderMode } from '../orderModes';
-import type { CafeConfig, CafeMenuItem } from '../types';
+import type { CafeConfig, CafeMenuItem, CafeStory } from '../types';
 
 type Tab = 'home' | 'menu' | 'builder' | 'loyalty' | 'booking' | 'cart';
 type Overlay = 'none' | 'checkout' | 'success';
@@ -40,6 +40,10 @@ export function PremiumCafeApp({ config }: { config: CafeConfig }) {
   const [activeCategory, setActiveCategory] = useState(config.categories[0]);
   const [sheetItem, setSheetItem] = useState<CafeMenuItem | null>(null);
   const [storyIndex, setStoryIndex] = useState<number | null>(null);
+
+  /** Кнопка в сторис ведёт в тот раздел, который задан в конфиге: бронь,
+   *  конструктор, бонусы — иначе всё сваливалось бы в меню. */
+  const openStoryTarget = (story: CafeStory) => setTab((story.ctaTarget ?? 'menu') as Tab);
   const [orderNumber, setOrderNumber] = useState('');
 
   const loyalty = config.modules?.loyalty;
@@ -137,6 +141,7 @@ export function PremiumCafeApp({ config }: { config: CafeConfig }) {
             config={config}
             onSelectItem={setSheetItem}
             onOpenStory={setStoryIndex}
+            onStoryCta={openStoryTarget}
             onOpenBuilder={builder ? () => setTab('builder') : undefined}
             onOpenCategory={(category) => {
               setActiveCategory(category);
@@ -196,9 +201,9 @@ export function PremiumCafeApp({ config }: { config: CafeConfig }) {
           stories={stories}
           startIndex={storyIndex}
           onClose={() => setStoryIndex(null)}
-          onCta={() => {
+          onCta={(story) => {
             setStoryIndex(null);
-            setTab('menu');
+            openStoryTarget(story);
           }}
         />
       )}

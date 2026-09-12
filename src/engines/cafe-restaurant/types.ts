@@ -21,8 +21,10 @@ export interface CafeStory {
   imageUrl: string;
   headline?: string;
   text?: string;
-  /** Подпись на кнопке внутри сторис, если ведёт в меню. */
+  /** Подпись на кнопке внутри сторис. */
   ctaLabel?: string;
+  /** Куда ведёт эта кнопка; по умолчанию — в меню. */
+  ctaTarget?: 'menu' | 'builder' | 'loyalty' | 'booking';
 }
 
 export interface BuilderOption {

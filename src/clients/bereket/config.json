@@ -45,7 +45,8 @@
         "imageUrl": "/clients/bereket/combo-lunch.jpg",
         "headline": "Комплексный обед за 4 000 ₸",
         "text": "Каждый день с 11:00 до 15:00 — суп, горячее, салат и напиток.",
-        "ctaLabel": "Смотреть меню"
+        "ctaLabel": "Смотреть меню",
+        "ctaTarget": "menu"
       },
       {
         "id": "doner",
@@ -53,7 +54,8 @@
         "imageUrl": "/clients/bereket/doner-spit.jpg",
         "headline": "Мясо на вертеле с самого утра",
         "text": "Только отборная говядина и баранина, никакого фарша.",
-        "ctaLabel": "Заказать донер"
+        "ctaLabel": "Заказать донер",
+        "ctaTarget": "builder"
       },
       {
         "id": "chef",
@@ -83,9 +85,24 @@
           "hint": "выберите одно",
           "type": "single",
           "options": [
-            { "id": "lavash", "label": "Тонкий лаваш", "price": 0, "hint": "классика по-турецки" },
-            { "id": "bread", "label": "Турецкий хлеб", "price": 200, "hint": "плотнее и сытнее" },
-            { "id": "plate", "label": "На тарелке с рисом", "price": 600, "hint": "порция с гарниром" }
+            {
+              "id": "lavash",
+              "label": "Тонкий лаваш",
+              "price": 0,
+              "hint": "классика по-турецки"
+            },
+            {
+              "id": "bread",
+              "label": "Турецкий хлеб",
+              "price": 200,
+              "hint": "плотнее и сытнее"
+            },
+            {
+              "id": "plate",
+              "label": "На тарелке с рисом",
+              "price": 600,
+              "hint": "порция с гарниром"
+            }
           ]
         },
         {
@@ -94,10 +111,26 @@
           "hint": "выберите одно",
           "type": "single",
           "options": [
-            { "id": "beef", "label": "Говядина", "price": 0 },
-            { "id": "chicken", "label": "Курица", "price": 0 },
-            { "id": "mix", "label": "Микс говядина + курица", "price": 300 },
-            { "id": "lamb", "label": "Баранина", "price": 500 }
+            {
+              "id": "beef",
+              "label": "Говядина",
+              "price": 0
+            },
+            {
+              "id": "chicken",
+              "label": "Курица",
+              "price": 0
+            },
+            {
+              "id": "mix",
+              "label": "Микс говядина + курица",
+              "price": 300
+            },
+            {
+              "id": "lamb",
+              "label": "Баранина",
+              "price": 500
+            }
           ]
         },
         {
@@ -106,8 +139,18 @@
           "hint": "выберите одно",
           "type": "single",
           "options": [
-            { "id": "standard", "label": "Стандарт", "price": 0, "hint": "≈ 300 г" },
-            { "id": "xl", "label": "XL — двойное мясо", "price": 900, "hint": "≈ 450 г" }
+            {
+              "id": "standard",
+              "label": "Стандарт",
+              "price": 0,
+              "hint": "≈ 300 г"
+            },
+            {
+              "id": "xl",
+              "label": "XL — двойное мясо",
+              "price": 900,
+              "hint": "≈ 450 г"
+            }
           ]
         },
         {
@@ -117,10 +160,26 @@
           "type": "multi",
           "max": 3,
           "options": [
-            { "id": "garlic", "label": "Чесночный", "price": 0 },
-            { "id": "spicy", "label": "Острый ачы", "price": 0 },
-            { "id": "bbq", "label": "Барбекю", "price": 0 },
-            { "id": "cheese", "label": "Сырный", "price": 250 }
+            {
+              "id": "garlic",
+              "label": "Чесночный",
+              "price": 0
+            },
+            {
+              "id": "spicy",
+              "label": "Острый ачы",
+              "price": 0
+            },
+            {
+              "id": "bbq",
+              "label": "Барбекю",
+              "price": 0
+            },
+            {
+              "id": "cheese",
+              "label": "Сырный",
+              "price": 250
+            }
           ]
         },
         {
@@ -129,10 +188,26 @@
           "hint": "можно несколько",
           "type": "multi",
           "options": [
-            { "id": "veg", "label": "Овощи и зелень", "price": 0 },
-            { "id": "pickles", "label": "Маринованные огурцы", "price": 0 },
-            { "id": "fries", "label": "Картофель фри внутрь", "price": 400 },
-            { "id": "jalapeno", "label": "Халапеньо", "price": 250 }
+            {
+              "id": "veg",
+              "label": "Овощи и зелень",
+              "price": 0
+            },
+            {
+              "id": "pickles",
+              "label": "Маринованные огурцы",
+              "price": 0
+            },
+            {
+              "id": "fries",
+              "label": "Картофель фри внутрь",
+              "price": 400
+            },
+            {
+              "id": "jalapeno",
+              "label": "Халапеньо",
+              "price": 250
+            }
           ]
         }
       ]
@@ -147,21 +222,72 @@
     "booking": {
       "title": "Бронь стола",
       "subtitle": "Основной зал и 26 VIP-кабин — выберите место на схеме",
-      "timeSlots": ["12:00", "13:00", "14:00", "18:00", "19:00", "20:00", "21:00", "22:00"],
+      "timeSlots": [
+        "12:00",
+        "13:00",
+        "14:00",
+        "18:00",
+        "19:00",
+        "20:00",
+        "21:00",
+        "22:00"
+      ],
       "zones": [
         {
           "id": "hall",
           "name": "Основной зал",
           "hint": "Столы у окна и в центре зала",
           "tables": [
-            { "id": "h1", "label": "Стол 1", "seats": 2, "kind": "table" },
-            { "id": "h2", "label": "Стол 2", "seats": 2, "kind": "table", "busy": true },
-            { "id": "h3", "label": "Стол 3", "seats": 4, "kind": "table" },
-            { "id": "h4", "label": "Стол 4", "seats": 4, "kind": "table" },
-            { "id": "h5", "label": "Стол 5", "seats": 4, "kind": "table", "busy": true },
-            { "id": "h6", "label": "Стол 6", "seats": 6, "kind": "table" },
-            { "id": "h7", "label": "Стол 7", "seats": 6, "kind": "table" },
-            { "id": "h8", "label": "Стол 8", "seats": 8, "kind": "table" }
+            {
+              "id": "h1",
+              "label": "Стол 1",
+              "seats": 2,
+              "kind": "table"
+            },
+            {
+              "id": "h2",
+              "label": "Стол 2",
+              "seats": 2,
+              "kind": "table",
+              "busy": true
+            },
+            {
+              "id": "h3",
+              "label": "Стол 3",
+              "seats": 4,
+              "kind": "table"
+            },
+            {
+              "id": "h4",
+              "label": "Стол 4",
+              "seats": 4,
+              "kind": "table"
+            },
+            {
+              "id": "h5",
+              "label": "Стол 5",
+              "seats": 4,
+              "kind": "table",
+              "busy": true
+            },
+            {
+              "id": "h6",
+              "label": "Стол 6",
+              "seats": 6,
+              "kind": "table"
+            },
+            {
+              "id": "h7",
+              "label": "Стол 7",
+              "seats": 6,
+              "kind": "table"
+            },
+            {
+              "id": "h8",
+              "label": "Стол 8",
+              "seats": 8,
+              "kind": "table"
+            }
           ]
         },
         {
@@ -169,20 +295,68 @@
           "name": "VIP-кабины",
           "hint": "Закрытые кабины на 4–10 гостей",
           "tables": [
-            { "id": "v1", "label": "Кабина 1", "seats": 4, "kind": "vip" },
-            { "id": "v2", "label": "Кабина 2", "seats": 4, "kind": "vip" },
-            { "id": "v3", "label": "Кабина 3", "seats": 6, "kind": "vip", "busy": true },
-            { "id": "v4", "label": "Кабина 4", "seats": 6, "kind": "vip" },
-            { "id": "v5", "label": "Кабина 5", "seats": 6, "kind": "vip" },
-            { "id": "v6", "label": "Кабина 6", "seats": 8, "kind": "vip" },
-            { "id": "v7", "label": "Кабина 7", "seats": 8, "kind": "vip", "busy": true },
-            { "id": "v8", "label": "Кабина 8", "seats": 10, "kind": "vip" }
+            {
+              "id": "v1",
+              "label": "Кабина 1",
+              "seats": 4,
+              "kind": "vip"
+            },
+            {
+              "id": "v2",
+              "label": "Кабина 2",
+              "seats": 4,
+              "kind": "vip"
+            },
+            {
+              "id": "v3",
+              "label": "Кабина 3",
+              "seats": 6,
+              "kind": "vip",
+              "busy": true
+            },
+            {
+              "id": "v4",
+              "label": "Кабина 4",
+              "seats": 6,
+              "kind": "vip"
+            },
+            {
+              "id": "v5",
+              "label": "Кабина 5",
+              "seats": 6,
+              "kind": "vip"
+            },
+            {
+              "id": "v6",
+              "label": "Кабина 6",
+              "seats": 8,
+              "kind": "vip"
+            },
+            {
+              "id": "v7",
+              "label": "Кабина 7",
+              "seats": 8,
+              "kind": "vip",
+              "busy": true
+            },
+            {
+              "id": "v8",
+              "label": "Кабина 8",
+              "seats": 10,
+              "kind": "vip"
+            }
           ]
         }
       ]
     }
   },
-  "categories": ["Донеры", "Мясные блюда", "Паста", "Закуски", "Комплексные обеды"],
+  "categories": [
+    "Донеры",
+    "Мясные блюда",
+    "Паста",
+    "Закуски",
+    "Комплексные обеды"
+  ],
   "items": [
     {
       "id": "doner-turkish",

@@ -1,96 +1,70 @@
-import { useRef, useState } from 'react';
 import { ChefHat, Clock, MapPin, Star } from 'lucide-react';
 import { ProductImage } from '@/components/ui/ProductImage';
 import { formatPrice } from '@/lib/format';
 import { plural } from '@/lib/plural';
-import { StoriesBar } from './StoriesBar';
-import type { CafeConfig, CafeMenuItem } from '../types';
-import { asset } from '@/lib/asset';
+import { HeroStories } from './HeroStories';
+import type { CafeConfig, CafeMenuItem, CafeStory } from '../types';
 
 export function HomeScreen({
   config,
   onSelectItem,
   onOpenStory,
+  onStoryCta,
   onOpenBuilder,
   onOpenCategory,
 }: {
   config: CafeConfig;
   onSelectItem: (item: CafeMenuItem) => void;
   onOpenStory: (index: number) => void;
+  onStoryCta: (story: CafeStory) => void;
   onOpenBuilder?: () => void;
   onOpenCategory: (category: string) => void;
 }) {
   const { business } = config;
   const stories = config.modules?.stories ?? [];
   const featured = config.items.filter((i) => i.featured);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [scrollY, setScrollY] = useState(0);
-
-  const heroImage = business.heroImageUrl ?? featured[0]?.imageUrl;
 
   return (
-    <div
-      ref={scrollRef}
-      onScroll={(e) => setScrollY(e.currentTarget.scrollTop)}
-      className="h-full overflow-y-auto no-scrollbar pb-32 bg-app"
-    >
-      {/* Hero с параллаксом */}
-      <div className="relative h-[58vh] min-h-[380px] overflow-hidden">
-        <div
-          className="absolute inset-0 will-change-transform"
-          style={{ transform: `translateY(${scrollY * 0.35}px) scale(${1 + scrollY * 0.0006})` }}
-        >
-          <ProductImage src={heroImage} alt={business.name} className="w-full h-full" />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/10 to-app" />
-        <div className="ornament absolute inset-0 opacity-25 mix-blend-overlay" />
-
-        <div className="relative h-full flex flex-col justify-between p-5">
-          <div className="flex items-start justify-between">
-            {business.logoUrl && (
-              <img
-                src={asset(business.logoUrl)}
-                alt={business.name}
-                className="w-12 h-12 rounded-full object-cover ring-1 ring-white/30 animate-fade-in"
-              />
-            )}
-            {business.rating != null && (
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur text-white text-xs">
-                <Star size={12} className="fill-accent text-accent" />
-                {business.rating}
-                {business.reviews != null && <span className="text-white/50">· {business.reviews}</span>}
-              </span>
-            )}
-          </div>
-
-          <div className="animate-fade-up">
-            <h1 className="font-display text-[2.6rem] leading-[1.05] text-white tracking-tight text-balance">
-              {business.name}
-            </h1>
-            {business.tagline && <p className="text-white/70 text-sm mt-2">{business.tagline}</p>}
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-3 text-[11px] text-white/60">
-              {(business.hoursLabel ?? business.etaLabel) && (
-                <span className="flex items-center gap-1">
-                  <Clock size={12} />
-                  {business.hoursLabel ?? business.etaLabel}
-                </span>
-              )}
-              {business.address && (
-                <span className="flex items-center gap-1">
-                  <MapPin size={12} />
-                  {business.address}
-                </span>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {stories.length > 0 && (
-        <div className="-mt-2 pb-5">
-          <StoriesBar stories={stories} onOpen={onOpenStory} />
+    <div className="h-full overflow-y-auto no-scrollbar pb-32 bg-app">
+      {stories.length > 0 ? (
+        <HeroStories stories={stories} business={business} onCta={onStoryCta} onExpand={onOpenStory} />
+      ) : (
+        <div className="relative h-[52vh] min-h-[340px] overflow-hidden">
+          <ProductImage
+            src={business.heroImageUrl ?? featured[0]?.imageUrl}
+            alt={business.name}
+            className="absolute inset-0 w-full h-full"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/10 to-app" />
+          <h1 className="absolute bottom-5 left-5 right-5 font-display text-[2.3rem] leading-[1.05] text-white text-balance">
+            {business.name}
+          </h1>
         </div>
       )}
+
+      {/* Строка с фактами о заведении: раньше она жила поверх фото, но
+          поверх листающихся сторис ей мешал бы текст кадра. */}
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 px-5 pt-4 pb-5 text-[11px] text-muted">
+        {(business.hoursLabel ?? business.etaLabel) && (
+          <span className="flex items-center gap-1.5">
+            <Clock size={12} className="text-accent" />
+            {business.hoursLabel ?? business.etaLabel}
+          </span>
+        )}
+        {business.rating != null && (
+          <span className="flex items-center gap-1.5">
+            <Star size={12} className="fill-accent text-accent" />
+            <span className="text-main">{business.rating}</span>
+            {business.reviews != null && <span>· {business.reviews}</span>}
+          </span>
+        )}
+        {business.address && (
+          <span className="flex items-center gap-1.5 min-w-0">
+            <MapPin size={12} className="text-accent shrink-0" />
+            <span className="truncate">{business.address}</span>
+          </span>
+        )}
+      </div>
 
       {onOpenBuilder && config.modules?.builder && (
         <button

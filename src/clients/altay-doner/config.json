@@ -39,12 +39,13 @@
   "modules": {
     "stories": [
       {
-        "id": "terrace",
-        "title": "Терраса",
-        "imageUrl": "/clients/altay-doner/terrace.jpg",
-        "headline": "Терраса открыта",
-        "text": "Гирлянды, тёплый вечер и донер на свежем воздухе — каждый день до 23:00.",
-        "ctaLabel": "Забронировать стол"
+        "id": "hello",
+        "title": "Doner Kebab",
+        "imageUrl": "/clients/altay-doner/storefront-night.jpg",
+        "headline": "Донер-кебаб на Мендикулова",
+        "text": "Мясо на вертеле с 09:00 до 23:00 — в зале, на террасе и с собой.",
+        "ctaLabel": "Смотреть меню",
+        "ctaTarget": "menu"
       },
       {
         "id": "spit",
@@ -52,7 +53,17 @@
         "imageUrl": "/clients/altay-doner/doner-spit.jpg",
         "headline": "Мясо на вертеле весь день",
         "text": "Говядина и курица, нарезаем прямо перед вами — никакого фарша.",
-        "ctaLabel": "Собрать донер"
+        "ctaLabel": "Собрать свой донер",
+        "ctaTarget": "builder"
+      },
+      {
+        "id": "terrace",
+        "title": "Терраса",
+        "imageUrl": "/clients/altay-doner/terrace.jpg",
+        "headline": "Терраса открыта",
+        "text": "Гирлянды, тёплый вечер и донер на свежем воздухе — каждый день до 23:00.",
+        "ctaLabel": "Забронировать стол",
+        "ctaTarget": "booking"
       },
       {
         "id": "breakfast",
@@ -60,21 +71,17 @@
         "imageUrl": "/clients/altay-doner/breakfast-english.jpg",
         "headline": "Завтраки с 09:00",
         "text": "Турецкий, английский, итальянский — и менемен на сковороде.",
-        "ctaLabel": "Смотреть меню"
-      },
-      {
-        "id": "evening",
-        "title": "Вечером",
-        "imageUrl": "/clients/altay-doner/storefront-night.jpg",
-        "headline": "Вечером нас видно издалека",
-        "text": "Вывеска DONER, тёплый свет и полный зал — заходите после работы."
+        "ctaLabel": "Смотреть завтраки",
+        "ctaTarget": "menu"
       },
       {
         "id": "ayran",
         "title": "Айран",
         "imageUrl": "/clients/altay-doner/ayran-wrap.jpg",
         "headline": "Донер и айран",
-        "text": "Классическая пара: горячий лаваш с гриля и холодный айран за 590 ₸."
+        "text": "Классическая пара: горячий лаваш с гриля и холодный айран за 590 ₸.",
+        "ctaLabel": "Копить штампы",
+        "ctaTarget": "loyalty"
       }
     ],
     "builder": {

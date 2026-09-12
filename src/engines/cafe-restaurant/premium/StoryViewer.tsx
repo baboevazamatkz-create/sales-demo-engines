@@ -3,23 +3,6 @@ import { X } from 'lucide-react';
 import type { CafeStory } from '../types';
 import { asset } from '@/lib/asset';
 
-export function StoriesBar({ stories, onOpen }: { stories: CafeStory[]; onOpen: (index: number) => void }) {
-  return (
-    <div className="flex gap-3 px-5 overflow-x-auto no-scrollbar">
-      {stories.map((story, i) => (
-        <button key={story.id} onClick={() => onOpen(i)} className="flex flex-col items-center gap-1.5 shrink-0 w-[74px]">
-          <span className="p-[2px] rounded-full foil animate-shimmer">
-            <span className="block p-[2px] rounded-full bg-app">
-              <img src={asset(story.imageUrl)} alt={story.title} className="w-14 h-14 rounded-full object-cover" />
-            </span>
-          </span>
-          <span className="text-[10px] text-muted leading-tight text-center">{story.title}</span>
-        </button>
-      ))}
-    </div>
-  );
-}
-
 /** Полноэкранный просмотрщик сторис с автопрогрессом и тапами по краям. */
 export function StoryViewer({
   stories,
@@ -30,7 +13,7 @@ export function StoryViewer({
   stories: CafeStory[];
   startIndex: number;
   onClose: () => void;
-  onCta?: () => void;
+  onCta?: (story: CafeStory) => void;
 }) {
   const [index, setIndex] = useState(startIndex);
   const [progress, setProgress] = useState(0);
@@ -109,7 +92,7 @@ export function StoryViewer({
         {story.text && <p className="text-white/75 text-sm mt-2 animate-fade-up">{story.text}</p>}
         {story.ctaLabel && onCta && (
           <button
-            onClick={onCta}
+            onClick={() => onCta(story)}
             className="pointer-events-auto mt-4 px-5 py-2.5 rounded-full foil text-brand text-sm font-semibold animate-fade-up"
           >
             {story.ctaLabel}
