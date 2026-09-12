@@ -1,0 +1,35 @@
+{
+  "clientId": "REPLACE_WITH_CLIENT_ID",
+  "niche": "retail",
+  "business": {
+    "name": "Название магазина",
+    "tagline": "Короткий слоган",
+    "logoUrl": "",
+    "address": "Адрес магазина",
+    "etaLabel": "Доставка 1–3 дня",
+    "currency": "₽"
+  },
+  "theme": {
+    "primary": "#1c1917",
+    "primarySoft": "#d6d3d1",
+    "primaryContrast": "#fafaf9",
+    "accent": "#d4af37",
+    "imageGradientFrom": "#e7e5e4",
+    "imageGradientTo": "#d6d3d1"
+  },
+  "categories": ["Категория 1", "Категория 2"],
+  "filters": [{ "id": "new", "label": "Новинки", "tag": "new" }],
+  "products": [
+    {
+      "id": "product-1",
+      "category": "Категория 1",
+      "name": "Название товара",
+      "desc": "Короткое описание товара",
+      "price": 1990,
+      "images": [],
+      "variants": [{ "label": "Размер", "options": ["S", "M", "L"] }],
+      "tags": ["new"]
+    }
+  ],
+  "shippingMethods": [{ "id": "courier", "label": "Курьером", "etaLabel": "1–2 дня" }]
+}

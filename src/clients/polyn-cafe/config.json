@@ -1,0 +1,37 @@
+{
+  "clientId": "polyn-cafe",
+  "niche": "cafe-restaurant",
+  "business": {
+    "name": "Полынь",
+    "tagline": "Кофейня и завтраки",
+    "rating": 4.8,
+    "reviews": 214,
+    "address": "ул. Ленина, 12",
+    "etaLabel": "25–35 мин",
+    "currency": "₽"
+  },
+  "theme": {
+    "primary": "#064e3b",
+    "primarySoft": "#a7f3d0",
+    "primaryContrast": "#ecfdf5",
+    "accent": "#fcd34d",
+    "imageGradientFrom": "#d1fae5",
+    "imageGradientTo": "#fef3c7"
+  },
+  "features": {
+    "delivery": true,
+    "pickup": true,
+    "tableOrder": true
+  },
+  "categories": ["Завтраки", "Кофе", "Выпечка", "Боулы"],
+  "items": [
+    { "id": "1", "category": "Завтраки", "name": "Овсянка с ягодами", "desc": "Овсяная каша, сезонные ягоды, мёд", "price": 320, "weight": "250 г" },
+    { "id": "2", "category": "Завтраки", "name": "Шакшука", "desc": "Яйца, томатный соус, перец, чиабатта", "price": 420, "weight": "300 г" },
+    { "id": "3", "category": "Кофе", "name": "Флэт уайт", "desc": "Двойной эспрессо, тонкое молоко", "price": 240, "weight": "200 мл" },
+    { "id": "4", "category": "Кофе", "name": "Раф с солёной карамелью", "desc": "Сливки, ваниль, карамель", "price": 280, "weight": "300 мл" },
+    { "id": "5", "category": "Выпечка", "name": "Круассан с миндалём", "desc": "Слоёное тесто, миндальный крем", "price": 210, "weight": "110 г" },
+    { "id": "6", "category": "Выпечка", "name": "Чизкейк Basque", "desc": "Классический баскский чизкейк", "price": 260, "weight": "120 г" },
+    { "id": "7", "category": "Боулы", "name": "Боул с лососем", "desc": "Рис, авокадо, лосось, эдамаме", "price": 480, "weight": "350 г" },
+    { "id": "8", "category": "Боулы", "name": "Киноа боул", "desc": "Киноа, нут, овощи гриль, тахини", "price": 390, "weight": "320 г" }
+  ]
+}

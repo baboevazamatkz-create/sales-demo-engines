@@ -1,0 +1,32 @@
+{
+  "clientId": "REPLACE_WITH_CLIENT_ID",
+  "niche": "delivery",
+  "subNiche": "food",
+  "business": {
+    "name": "Название сервиса",
+    "tagline": "Короткий слоган",
+    "logoUrl": "",
+    "address": "Адрес",
+    "etaLabel": "30–45 мин",
+    "currency": "₽"
+  },
+  "theme": {
+    "primary": "#9d174d",
+    "primarySoft": "#fbcfe8",
+    "primaryContrast": "#fdf2f8",
+    "accent": "#f472b6",
+    "imageGradientFrom": "#fce7f3",
+    "imageGradientTo": "#fef3c7"
+  },
+  "categories": ["Категория 1", "Категория 2"],
+  "items": [
+    { "id": "1", "category": "Категория 1", "name": "Название позиции", "desc": "Короткое описание", "price": 500, "weight": "300 г", "imageUrl": "" }
+  ],
+  "trackingStages": [
+    { "id": "received", "label": "Заказ принят", "detail": "Заказ передан в обработку" },
+    { "id": "preparing", "label": "Готовится", "detail": "Ваш заказ готовят" },
+    { "id": "on_the_way", "label": "В пути", "detail": "Курьер выехал к вам" },
+    { "id": "delivered", "label": "Доставлено", "detail": "Заказ передан получателю" }
+  ],
+  "stageDurationMs": 4000
+}

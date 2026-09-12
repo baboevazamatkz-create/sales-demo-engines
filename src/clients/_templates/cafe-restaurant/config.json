@@ -1,0 +1,31 @@
+{
+  "clientId": "REPLACE_WITH_CLIENT_ID",
+  "niche": "cafe-restaurant",
+  "business": {
+    "name": "Название заведения",
+    "tagline": "Короткий слоган",
+    "logoUrl": "",
+    "rating": 4.7,
+    "reviews": 0,
+    "address": "Адрес заведения",
+    "etaLabel": "20–30 мин",
+    "currency": "₽"
+  },
+  "theme": {
+    "primary": "#064e3b",
+    "primarySoft": "#a7f3d0",
+    "primaryContrast": "#ecfdf5",
+    "accent": "#fcd34d",
+    "imageGradientFrom": "#d1fae5",
+    "imageGradientTo": "#fef3c7"
+  },
+  "features": {
+    "delivery": true,
+    "pickup": true,
+    "tableOrder": false
+  },
+  "categories": ["Категория 1", "Категория 2"],
+  "items": [
+    { "id": "1", "category": "Категория 1", "name": "Название блюда", "desc": "Короткое описание состава", "price": 300, "weight": "250 г", "imageUrl": "" }
+  ]
+}

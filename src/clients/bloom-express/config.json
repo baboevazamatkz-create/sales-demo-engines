@@ -1,0 +1,36 @@
+{
+  "clientId": "bloom-express",
+  "niche": "delivery",
+  "subNiche": "flowers",
+  "business": {
+    "name": "Bloom Express",
+    "tagline": "Доставка цветов за 60 минут",
+    "address": "ул. Цветочная, 8",
+    "etaLabel": "45–60 мин",
+    "currency": "₽"
+  },
+  "theme": {
+    "primary": "#9d174d",
+    "primarySoft": "#fbcfe8",
+    "primaryContrast": "#fdf2f8",
+    "accent": "#f472b6",
+    "imageGradientFrom": "#fce7f3",
+    "imageGradientTo": "#fef3c7"
+  },
+  "categories": ["Букеты", "Композиции", "Открытки"],
+  "items": [
+    { "id": "1", "category": "Букеты", "name": "25 розовых пионов", "desc": "Пионовидные розы, крафт-упаковка", "price": 3900, "weight": "25 шт" },
+    { "id": "2", "category": "Букеты", "name": "Букет полевых цветов", "desc": "Ромашки, васильки, эвкалипт", "price": 2400, "weight": "15 шт" },
+    { "id": "3", "category": "Букеты", "name": "Монобукет тюльпанов", "desc": "Свежие тюльпаны, лента", "price": 2100, "weight": "21 шт" },
+    { "id": "4", "category": "Композиции", "name": "Композиция в коробке", "desc": "Розы и гипсофила в шляпной коробке", "price": 4500, "weight": "1 шт" },
+    { "id": "5", "category": "Композиции", "name": "Цветы в корзине", "desc": "Микс сезонных цветов", "price": 3600, "weight": "1 шт" },
+    { "id": "6", "category": "Открытки", "name": "Открытка \"С любовью\"", "desc": "Дополнение к любому букету", "price": 250 }
+  ],
+  "trackingStages": [
+    { "id": "received", "label": "Заказ принят", "detail": "Флорист уже видит ваш заказ" },
+    { "id": "preparing", "label": "Собираем букет", "detail": "Флорист собирает и упаковывает заказ" },
+    { "id": "on_the_way", "label": "Курьер в пути", "detail": "Курьер выехал к вам" },
+    { "id": "delivered", "label": "Доставлено", "detail": "Заказ передан получателю" }
+  ],
+  "stageDurationMs": 4000
+}

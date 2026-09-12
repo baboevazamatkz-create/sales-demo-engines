@@ -1,0 +1,12 @@
+node_modules
+dist
+dist-*
+.env
+.env.local
+*.local
+
+# Capacitor native projects are generated on demand (npx cap add ...)
+/android
+/ios
+
+.DS_Store
