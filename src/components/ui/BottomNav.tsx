@@ -17,7 +17,7 @@ export function BottomNav({
   onSelect: (id: string) => void;
 }) {
   return (
-    <nav className="absolute bottom-0 left-0 right-0 z-30 bg-surface/95 backdrop-blur border-t border-line px-2 pt-2 pb-3">
+    <nav className="absolute bottom-0 left-0 right-0 z-30 bg-surface/70 backdrop-blur-xl border-t border-line/60 px-2 pt-2 pb-3">
       <div className="flex items-stretch">
         {items.map((item) => {
           const Icon = item.icon;
