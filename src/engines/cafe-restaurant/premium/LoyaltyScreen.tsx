@@ -27,7 +27,7 @@ export function LoyaltyScreen({
 
       {/* Карта */}
       <div className="mx-5 rounded-3xl overflow-hidden relative bg-brand p-5 animate-scale-in">
-        <div className="ornament-turkish absolute inset-0 opacity-30" />
+        <div className="ornament absolute inset-0 opacity-30" />
         <div className="relative">
           <div className="flex items-start justify-between">
             <div>

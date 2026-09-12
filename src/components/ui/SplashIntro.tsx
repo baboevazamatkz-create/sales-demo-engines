@@ -33,7 +33,7 @@ export function SplashIntro({
         leaving ? 'opacity-0' : 'opacity-100'
       }`}
     >
-      <div className="ornament-turkish absolute inset-0 opacity-40" />
+      <div className="ornament absolute inset-0 opacity-40" />
 
       <div className="relative flex flex-col items-center">
         <div className="relative">

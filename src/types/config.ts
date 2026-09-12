@@ -44,6 +44,9 @@ export interface BusinessInfo {
   currency: string;
   /** e.g. "25-35 мин" for cafe/delivery, or a shipping estimate for retail. */
   etaLabel?: string;
+  /** Часы работы заведения: "09:00 – 23:00", "Круглосуточно". Показываются
+   * на hero вместо срока готовности — у ресторана это разные вещи. */
+  hoursLabel?: string;
   rating?: number;
   reviews?: number;
   /** Крупное фото для hero-экрана премиум-пресета. */

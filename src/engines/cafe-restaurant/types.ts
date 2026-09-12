@@ -101,8 +101,8 @@ export interface CafeConfig extends BaseClientConfig {
   /** Визуальный характер: 'classic' — светлый минимализм, 'night' — тёмный премиум. */
   style?: {
     preset?: 'classic' | 'night';
-    /** Фоновый геометрический орнамент. */
-    pattern?: 'none' | 'turkish';
+    /** Фоновый геометрический орнамент: см. PATTERNS в lib/theme.ts. */
+    pattern?: 'turkish' | 'mountains' | 'grid';
     /** Текст на сплэш-экране под логотипом. */
     splashTagline?: string;
   };

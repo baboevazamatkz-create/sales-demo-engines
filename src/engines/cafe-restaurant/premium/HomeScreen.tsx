@@ -43,7 +43,7 @@ export function HomeScreen({
           <ProductImage src={heroImage} alt={business.name} className="w-full h-full" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/10 to-app" />
-        <div className="ornament-turkish absolute inset-0 opacity-25 mix-blend-overlay" />
+        <div className="ornament absolute inset-0 opacity-25 mix-blend-overlay" />
 
         <div className="relative h-full flex flex-col justify-between p-5">
           <div className="flex items-start justify-between">
@@ -69,10 +69,10 @@ export function HomeScreen({
             </h1>
             {business.tagline && <p className="text-white/70 text-sm mt-2">{business.tagline}</p>}
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-3 text-[11px] text-white/60">
-              {business.etaLabel && (
+              {(business.hoursLabel ?? business.etaLabel) && (
                 <span className="flex items-center gap-1">
                   <Clock size={12} />
-                  {business.etaLabel}
+                  {business.hoursLabel ?? business.etaLabel}
                 </span>
               )}
               {business.address && (

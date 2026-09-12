@@ -51,6 +51,11 @@ body {
   --color-text-muted-rgb: 120 113 108;
   --color-line: #e7e5e4;
   --color-line-rgb: 231 229 228;
+  --ornament-image:
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--color-accent) 22%, transparent) 1.2px, transparent 1.3px),
+    repeating-linear-gradient(45deg, color-mix(in srgb, var(--color-accent) 7%, transparent) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(-45deg, color-mix(in srgb, var(--color-accent) 7%, transparent) 0 1px, transparent 1px 22px);
+  --ornament-size: 22px 22px;
 }
 
 body {
@@ -79,14 +84,12 @@ body {
   -webkit-line-clamp: 3;
 }
 
-/* Тонкий геометрический орнамент в турецком духе — фоновая текстура,
-   которая подхватывает акцентный цвет клиента. */
-.ornament-turkish {
-  background-image:
-    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--color-accent) 22%, transparent) 1.2px, transparent 1.3px),
-    repeating-linear-gradient(45deg, color-mix(in srgb, var(--color-accent) 7%, transparent) 0 1px, transparent 1px 22px),
-    repeating-linear-gradient(-45deg, color-mix(in srgb, var(--color-accent) 7%, transparent) 0 1px, transparent 1px 22px);
-  background-size: 22px 22px, 22px 22px, 22px 22px;
+/* Фоновая текстура заведения. Сам рисунок выбирается в конфиге клиента
+   (style.pattern) и приезжает сюда переменными из applyPattern — так у
+   каждого демо своя геометрия, а не один общий узор. */
+.ornament {
+  background-image: var(--ornament-image);
+  background-size: var(--ornament-size);
 }
 
 /* Золотистая «фольга» для премиальных плашек и кнопок. */

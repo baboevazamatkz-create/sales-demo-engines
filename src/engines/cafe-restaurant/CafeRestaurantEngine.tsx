@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useCart } from '@/hooks/useCart';
-import { applyTheme } from '@/lib/theme';
+import { applyPattern, applyTheme } from '@/lib/theme';
 import { MenuScreen } from './MenuScreen';
 import { ItemDetailScreen } from '@/components/screens/ItemDetailScreen';
 import { CartScreen } from './CartScreen';
@@ -18,6 +18,7 @@ type Screen = 'menu' | 'item' | 'cart' | 'checkout' | 'success';
  * (по умолчанию) — светлый минималистичный флоу меню → корзина → заказ. */
 export function CafeRestaurantEngine({ config }: { config: CafeConfig }) {
   useEffect(() => applyTheme(config.theme), [config.theme]);
+  useEffect(() => applyPattern(config.style?.pattern), [config.style?.pattern]);
 
   if (config.style?.preset === 'night') {
     return <PremiumCafeApp config={config} />;

@@ -1,0 +1,447 @@
+{
+  "clientId": "altay-doner",
+  "niche": "cafe-restaurant",
+  "business": {
+    "name": "ALTAY DONER",
+    "tagline": "Донер-кебаб по-турецки в Самале",
+    "logoUrl": "/clients/altay-doner/logo.png",
+    "heroImageUrl": "/clients/altay-doner/storefront-night.jpg",
+    "address": "мкр. Самал-2, ул. Мендикулова, 98",
+    "etaLabel": "20–30 мин",
+    "hoursLabel": "09:00 – 23:00",
+    "currency": "₸"
+  },
+  "theme": {
+    "mood": "dark",
+    "primary": "#d61f1a",
+    "primarySoft": "#f6d3b4",
+    "primaryContrast": "#fff4ef",
+    "accent": "#d0a163",
+    "imageGradientFrom": "#2a1512",
+    "imageGradientTo": "#d61f1a",
+    "bg": "#0b0a0a",
+    "surface": "#161312",
+    "surfaceMuted": "#201c1a",
+    "textPrimary": "#f6f1ea",
+    "textMuted": "#a2968d",
+    "border": "#2d2725"
+  },
+  "style": {
+    "preset": "night",
+    "pattern": "mountains",
+    "splashTagline": "Горячо · Быстро · Вкусно"
+  },
+  "features": {
+    "delivery": true,
+    "pickup": true,
+    "tableOrder": true
+  },
+  "modules": {
+    "stories": [
+      {
+        "id": "terrace",
+        "title": "Терраса",
+        "imageUrl": "/clients/altay-doner/terrace.jpg",
+        "headline": "Терраса открыта",
+        "text": "Гирлянды, тёплый вечер и донер на свежем воздухе — каждый день до 23:00.",
+        "ctaLabel": "Забронировать стол"
+      },
+      {
+        "id": "spit",
+        "title": "Вертел",
+        "imageUrl": "/clients/altay-doner/doner-spit.jpg",
+        "headline": "Мясо на вертеле весь день",
+        "text": "Говядина и курица, нарезаем прямо перед вами — никакого фарша.",
+        "ctaLabel": "Собрать донер"
+      },
+      {
+        "id": "breakfast",
+        "title": "Завтраки",
+        "imageUrl": "/clients/altay-doner/breakfast-english.jpg",
+        "headline": "Завтраки с 09:00",
+        "text": "Турецкий, английский, итальянский — и менемен на сковороде.",
+        "ctaLabel": "Смотреть меню"
+      },
+      {
+        "id": "evening",
+        "title": "Вечером",
+        "imageUrl": "/clients/altay-doner/storefront-night.jpg",
+        "headline": "Вечером нас видно издалека",
+        "text": "Вывеска DONER, тёплый свет и полный зал — заходите после работы."
+      },
+      {
+        "id": "ayran",
+        "title": "Айран",
+        "imageUrl": "/clients/altay-doner/ayran-wrap.jpg",
+        "headline": "Донер и айран",
+        "text": "Классическая пара: горячий лаваш с гриля и холодный айран за 590 ₸."
+      }
+    ],
+    "builder": {
+      "title": "Собери свой донер",
+      "subtitle": "Основа, мясо, порция и соусы — цена пересчитывается сразу",
+      "itemName": "Донер по-вашему",
+      "basePrice": 2100,
+      "imageUrl": "/clients/altay-doner/doner-open.jpg",
+      "steps": [
+        {
+          "id": "base",
+          "label": "Основа",
+          "hint": "выберите одно",
+          "type": "single",
+          "options": [
+            {
+              "id": "lavash",
+              "label": "В лаваше",
+              "price": 0,
+              "hint": "классика на гриле"
+            },
+            {
+              "id": "baton",
+              "label": "В батоне",
+              "price": 100,
+              "hint": "плотнее и сытнее"
+            },
+            {
+              "id": "tombik",
+              "label": "Томбик",
+              "price": 290,
+              "hint": "в круглой булочке"
+            },
+            {
+              "id": "plate",
+              "label": "На тарелке",
+              "price": 1890,
+              "hint": "с лавашем и овощами"
+            }
+          ]
+        },
+        {
+          "id": "meat",
+          "label": "Мясо",
+          "hint": "выберите одно",
+          "type": "single",
+          "options": [
+            {
+              "id": "chicken",
+              "label": "Куриный",
+              "price": 0
+            },
+            {
+              "id": "beef",
+              "label": "Говяжий",
+              "price": 200
+            },
+            {
+              "id": "mix",
+              "label": "Ассорти",
+              "price": 300,
+              "hint": "говядина + курица"
+            }
+          ]
+        },
+        {
+          "id": "portion",
+          "label": "Порция",
+          "hint": "выберите одно",
+          "type": "single",
+          "options": [
+            {
+              "id": "p1",
+              "label": "1 порция",
+              "price": 0,
+              "hint": "мясо 95 г, вес 380 г"
+            },
+            {
+              "id": "p15",
+              "label": "1.5 порции",
+              "price": 1050,
+              "hint": "мясо 145 г, вес 510 г"
+            }
+          ]
+        },
+        {
+          "id": "cheese",
+          "label": "Сыр",
+          "hint": "по желанию",
+          "type": "multi",
+          "max": 1,
+          "options": [
+            {
+              "id": "cheese",
+              "label": "Добавить сыр",
+              "price": 150
+            }
+          ]
+        },
+        {
+          "id": "sauce",
+          "label": "Соусы",
+          "hint": "можно до 3",
+          "type": "multi",
+          "max": 3,
+          "options": [
+            {
+              "id": "garlic",
+              "label": "Чесночный",
+              "price": 0
+            },
+            {
+              "id": "spicy",
+              "label": "Острый",
+              "price": 0
+            },
+            {
+              "id": "bbq",
+              "label": "Барбекю",
+              "price": 0
+            },
+            {
+              "id": "ketchup",
+              "label": "Кетчуп",
+              "price": 0
+            },
+            {
+              "id": "mayo",
+              "label": "Майонез",
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": "extras",
+          "label": "Добавки",
+          "hint": "можно несколько",
+          "type": "multi",
+          "options": [
+            {
+              "id": "veg",
+              "label": "Овощи и зелень",
+              "price": 0
+            },
+            {
+              "id": "pickles",
+              "label": "Маринованные огурцы",
+              "price": 0
+            },
+            {
+              "id": "fries",
+              "label": "Картофель фри внутрь",
+              "price": 400
+            },
+            {
+              "id": "jalapeno",
+              "label": "Халапеньо",
+              "price": 200
+            }
+          ]
+        }
+      ]
+    },
+    "loyalty": {
+      "title": "Карта гостя",
+      "subtitle": "Штамп за каждый заказ из приложения",
+      "stampsRequired": 6,
+      "rewardLabel": "Донер в подарок",
+      "demoStamps": 4
+    },
+    "booking": {
+      "title": "Бронь стола",
+      "subtitle": "Летняя терраса и основной зал — выберите место на схеме",
+      "timeSlots": [
+        "12:00",
+        "13:00",
+        "14:00",
+        "18:00",
+        "19:00",
+        "20:00",
+        "21:00",
+        "22:00"
+      ],
+      "zones": [
+        {
+          "id": "terrace",
+          "name": "Летняя терраса",
+          "hint": "Под навесом, с гирляндами — открыта до 23:00",
+          "tables": [
+            {
+              "id": "t1",
+              "label": "Стол 1",
+              "seats": 2,
+              "kind": "table"
+            },
+            {
+              "id": "t2",
+              "label": "Стол 2",
+              "seats": 2,
+              "kind": "table",
+              "busy": true
+            },
+            {
+              "id": "t3",
+              "label": "Стол 3",
+              "seats": 4,
+              "kind": "table"
+            },
+            {
+              "id": "t4",
+              "label": "Стол 4",
+              "seats": 4,
+              "kind": "table"
+            },
+            {
+              "id": "t5",
+              "label": "Стол 5",
+              "seats": 4,
+              "kind": "table",
+              "busy": true
+            },
+            {
+              "id": "t6",
+              "label": "Стол 6",
+              "seats": 6,
+              "kind": "table"
+            },
+            {
+              "id": "t7",
+              "label": "Диван 1",
+              "seats": 6,
+              "kind": "vip"
+            },
+            {
+              "id": "t8",
+              "label": "Диван 2",
+              "seats": 8,
+              "kind": "vip"
+            }
+          ]
+        },
+        {
+          "id": "hall",
+          "name": "Основной зал",
+          "hint": "Внутри, у панорамных окон",
+          "tables": [
+            {
+              "id": "h1",
+              "label": "Стол 1",
+              "seats": 2,
+              "kind": "table"
+            },
+            {
+              "id": "h2",
+              "label": "Стол 2",
+              "seats": 2,
+              "kind": "table"
+            },
+            {
+              "id": "h3",
+              "label": "Стол 3",
+              "seats": 4,
+              "kind": "table",
+              "busy": true
+            },
+            {
+              "id": "h4",
+              "label": "Стол 4",
+              "seats": 4,
+              "kind": "table"
+            },
+            {
+              "id": "h5",
+              "label": "Стол 5",
+              "seats": 6,
+              "kind": "table"
+            },
+            {
+              "id": "h6",
+              "label": "Стол 6",
+              "seats": 8,
+              "kind": "table"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "categories": [
+    "Донеры",
+    "Завтраки",
+    "Напитки"
+  ],
+  "items": [
+    {
+      "id": "doner-assorti-lavash",
+      "category": "Донеры",
+      "name": "Донер ассорти в лаваше",
+      "desc": "Говядина и курица с вертела, картофель фри, свежие овощи и фирменный соус в лаваше с гриля",
+      "price": 2400,
+      "weight": "380 г",
+      "imageUrl": "/clients/altay-doner/doner-open.jpg",
+      "featured": true,
+      "badge": "Хит"
+    },
+    {
+      "id": "doner-beef-lavash",
+      "category": "Донеры",
+      "name": "Донер говяжий в лаваше",
+      "desc": "Только говядина с вертела, овощи и соус на выбор — тонкий лаваш, обжаренный на гриле",
+      "price": 2300,
+      "weight": "380 г",
+      "imageUrl": "/clients/altay-doner/doner-spit.jpg"
+    },
+    {
+      "id": "doner-chicken-baton",
+      "category": "Донеры",
+      "name": "Донер куриный в батоне",
+      "desc": "Сочная курица с вертела в хрустящем батоне, овощи и два соуса на выбор",
+      "price": 2200,
+      "weight": "380 г",
+      "imageUrl": "/clients/altay-doner/wrap-plate.jpg"
+    },
+    {
+      "id": "doner-plate",
+      "category": "Донеры",
+      "name": "Донер на тарелке",
+      "desc": "Мясо с вертела порционно, с лавашем, овощами и соусами — без спешки, за столом",
+      "price": 3990,
+      "weight": "1 порция",
+      "imageUrl": "/clients/altay-doner/meat-plate.jpg",
+      "featured": true,
+      "badge": "Сытно"
+    },
+    {
+      "id": "breakfast-champion",
+      "category": "Завтраки",
+      "name": "Завтрак чемпиона",
+      "desc": "Яйца пашот на тостах, мясная нарезка, свежие огурцы, арбуз и зелень",
+      "price": 2990,
+      "imageUrl": "/clients/altay-doner/breakfast-champion.jpg",
+      "featured": true,
+      "badge": "с 09:00"
+    },
+    {
+      "id": "breakfast-english",
+      "category": "Завтраки",
+      "name": "Английский завтрак",
+      "desc": "Глазунья, обжаренная колбаса, сигара-борек и салат из свежих овощей",
+      "price": 3090,
+      "imageUrl": "/clients/altay-doner/breakfast-english.jpg"
+    },
+    {
+      "id": "breakfast-italian",
+      "category": "Завтраки",
+      "name": "Итальянский завтрак",
+      "desc": "Яичница с суджуком на чугунной сковороде, тосты, сыр и зелёный салат",
+      "price": 4990,
+      "imageUrl": "/clients/altay-doner/breakfast-italian.jpg"
+    },
+    {
+      "id": "ayran",
+      "category": "Напитки",
+      "name": "Айран 0,5 л",
+      "desc": "Холодный кисломолочный айран — лучшая пара к горячему донеру",
+      "price": 590,
+      "imageUrl": "/clients/altay-doner/ayran-wrap.jpg"
+    }
+  ]
+}

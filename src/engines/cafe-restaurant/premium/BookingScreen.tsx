@@ -74,7 +74,7 @@ export function BookingScreen({ booking, businessName }: { booking: BookingModul
         <div className="mx-5 p-4 rounded-2xl bg-surface border border-line">
           {zone.hint && <div className="text-[11px] text-muted mb-3">{zone.hint}</div>}
           <div className="relative rounded-xl overflow-hidden p-3 bg-surface-muted">
-            <div className="ornament-turkish absolute inset-0 opacity-25" />
+            <div className="ornament absolute inset-0 opacity-25" />
             <div className="relative grid grid-cols-4 gap-2.5">
               {zone.tables.map((t) => (
                 <TableCell key={t.id} table={t} selected={t.id === tableId} onSelect={() => !t.busy && setTableId(t.id)} />

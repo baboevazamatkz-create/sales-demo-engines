@@ -75,3 +75,36 @@ export function applyTheme(theme: Partial<BrandTheme> = {}) {
 
   document.documentElement.dataset.mood = merged.mood ?? 'light';
 }
+
+/** Фоновая геометрия заведения. Рисунок задаётся в конфиге (style.pattern),
+ * кладётся на :root переменными и подхватывается классом .ornament — так у
+ * каждого клиента своя текстура без правки компонентов. */
+const PATTERNS: Record<string, { image: string; size: string }> = {
+  // Турецкая решётка: ромбы 45° с точкой в центре ячейки.
+  turkish: {
+    image: `radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--color-accent) 22%, transparent) 1.2px, transparent 1.3px),
+      repeating-linear-gradient(45deg, color-mix(in srgb, var(--color-accent) 7%, transparent) 0 1px, transparent 1px 22px),
+      repeating-linear-gradient(-45deg, color-mix(in srgb, var(--color-accent) 7%, transparent) 0 1px, transparent 1px 22px)`,
+    size: '22px 22px',
+  },
+  // Горы Алтая: острые пики 60° и «снежные» точки над ними.
+  mountains: {
+    image: `radial-gradient(circle at 50% 14%, color-mix(in srgb, var(--color-accent) 26%, transparent) 1.1px, transparent 1.2px),
+      repeating-linear-gradient(62deg, color-mix(in srgb, var(--color-accent) 9%, transparent) 0 1.2px, transparent 1.2px 30px),
+      repeating-linear-gradient(-62deg, color-mix(in srgb, var(--color-accent) 9%, transparent) 0 1.2px, transparent 1.2px 30px)`,
+    size: '34px 30px',
+  },
+  // Ровная сетка — для нейтральных, «городских» брендов.
+  grid: {
+    image: `linear-gradient(color-mix(in srgb, var(--color-accent) 8%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--color-accent) 8%, transparent) 1px, transparent 1px)`,
+    size: '26px 26px',
+  },
+};
+
+export function applyPattern(pattern?: string) {
+  const chosen = PATTERNS[pattern ?? 'turkish'] ?? PATTERNS.turkish;
+  const root = document.documentElement.style;
+  root.setProperty('--ornament-image', chosen.image);
+  root.setProperty('--ornament-size', chosen.size);
+}

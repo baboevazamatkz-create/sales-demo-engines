@@ -26,7 +26,7 @@ export function SuccessScreen({
   return (
     <div className="h-full flex flex-col bg-app overflow-hidden">
       <div className="relative pt-14 pb-8 px-6 text-center">
-        <div className="ornament-turkish absolute inset-0 opacity-20" />
+        <div className="ornament absolute inset-0 opacity-20" />
         <div className="relative">
           <div className="w-20 h-20 rounded-full foil mx-auto flex items-center justify-center animate-scale-in">
             <Check size={36} className="text-brand" strokeWidth={2.5} />
