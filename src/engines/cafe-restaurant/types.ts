@@ -105,6 +105,10 @@ export interface CafeConfig extends BaseClientConfig {
    *  тема задаётся палитрой (theme.mood), а не пресетом. */
   style?: {
     preset?: 'classic' | 'premium';
+    /** Вёрстка premium-оболочки: 'cards' — карточки и плитки (по умолчанию),
+     *  'editorial' — журнальная подача: печатное меню, разделы полосами,
+     *  серифная типографика и плавающая навигация. */
+    layout?: 'cards' | 'editorial';
     /** Фоновый геометрический орнамент: см. PATTERNS в lib/theme.ts. */
     pattern?: 'turkish' | 'mountains' | 'checker' | 'diamonds' | 'petals' | 'grid';
     /** Текст на сплэш-экране под логотипом. */

@@ -4,7 +4,9 @@ import { useCart } from '@/hooks/useCart';
 import { BottomNav, type NavItem } from '@/components/ui/BottomNav';
 import { SplashIntro } from '@/components/ui/SplashIntro';
 import { HomeScreen } from './HomeScreen';
+import { EditorialHome } from './EditorialHome';
 import { MenuScreen } from './MenuScreen';
+import { EditorialMenu } from './EditorialMenu';
 import { ItemSheet } from './ItemSheet';
 import { BuilderScreen, type BuiltItem } from './BuilderScreen';
 import { LoyaltyScreen } from './LoyaltyScreen';
@@ -65,6 +67,9 @@ export function PremiumCafeApp({ config }: { config: CafeConfig }) {
 
   const cart = useCart<CafeCartMeta>();
   const cartTotal = cart.items.reduce((sum, line) => sum + line.qty * line.meta.price, 0);
+
+  /** Вёрстка оболочки: карточная по умолчанию, журнальная — по конфигу. */
+  const editorial = config.style?.layout === 'editorial';
 
   const stories = config.modules?.stories ?? [];
   const builder = config.modules?.builder;
@@ -131,33 +136,50 @@ export function PremiumCafeApp({ config }: { config: CafeConfig }) {
           name={config.business.name}
           logoUrl={config.business.logoUrl}
           tagline={config.style?.splashTagline ?? config.business.tagline}
+          variant={editorial ? 'serif' : 'display'}
           onDone={() => setShowSplash(false)}
         />
       )}
 
       <div className="h-full">
-        {tab === 'home' && (
-          <HomeScreen
-            config={config}
-            onSelectItem={setSheetItem}
-            onOpenStory={setStoryIndex}
-            onStoryCta={openStoryTarget}
-            onOpenBuilder={builder ? () => setTab('builder') : undefined}
-            onOpenCategory={(category) => {
-              setActiveCategory(category);
-              setTab('menu');
-            }}
-          />
-        )}
+        {tab === 'home' &&
+          (editorial ? (
+            <EditorialHome
+              config={config}
+              onSelectItem={setSheetItem}
+              onOpenStory={setStoryIndex}
+              onStoryCta={openStoryTarget}
+              onOpenBuilder={builder ? () => setTab('builder') : undefined}
+              onOpenCategory={(category) => {
+                setActiveCategory(category);
+                setTab('menu');
+              }}
+            />
+          ) : (
+            <HomeScreen
+              config={config}
+              onSelectItem={setSheetItem}
+              onOpenStory={setStoryIndex}
+              onStoryCta={openStoryTarget}
+              onOpenBuilder={builder ? () => setTab('builder') : undefined}
+              onOpenCategory={(category) => {
+                setActiveCategory(category);
+                setTab('menu');
+              }}
+            />
+          ))}
 
-        {tab === 'menu' && (
-          <MenuScreen
-            config={config}
-            activeCategory={activeCategory}
-            setActiveCategory={setActiveCategory}
-            onSelectItem={setSheetItem}
-          />
-        )}
+        {tab === 'menu' &&
+          (editorial ? (
+            <EditorialMenu config={config} activeCategory={activeCategory} onSelectItem={setSheetItem} />
+          ) : (
+            <MenuScreen
+              config={config}
+              activeCategory={activeCategory}
+              setActiveCategory={setActiveCategory}
+              onSelectItem={setSheetItem}
+            />
+          ))}
 
         {tab === 'builder' && builder && (
           <BuilderScreen builder={builder} currency={config.business.currency} onAdd={addBuiltItem} />
@@ -208,7 +230,12 @@ export function PremiumCafeApp({ config }: { config: CafeConfig }) {
         />
       )}
 
-      <BottomNav items={navItems} active={tab} onSelect={(id) => setTab(id as Tab)} />
+      <BottomNav
+        items={navItems}
+        active={tab}
+        onSelect={(id) => setTab(id as Tab)}
+        variant={editorial ? 'floating' : 'bar'}
+      />
     </div>
   );
 }

@@ -16,11 +16,14 @@ export function HeroStories({
   stories,
   business,
   mood,
+  variant = 'display',
   onCta,
   onExpand,
 }: {
   stories: CafeStory[];
   business: BusinessInfo;
+  /** 'serif' — журнальная подача заголовка кадра вместо гротеска. */
+  variant?: 'display' | 'serif';
   /** Подпись кадра лежит на подложке цвета фона приложения, поэтому в
    *  светлой теме текст должен быть тёмным — белый на ней не читается. */
   mood?: 'light' | 'dark';
@@ -71,6 +74,7 @@ export function HeroStories({
 
   const fitClass = contain[story.id] ? 'object-contain' : 'object-cover';
   const dark = mood !== 'light';
+  const titleFont = variant === 'serif' ? 'font-serif tracking-wide' : 'font-display';
   const headlineClass = dark ? 'text-white' : 'text-main';
   const textClass = dark ? 'text-white/75' : 'text-muted';
 
@@ -163,7 +167,7 @@ export function HeroStories({
 
       <div className="absolute left-0 right-0 bottom-0 p-5 pb-6 z-20 pointer-events-none">
         <span className="text-[10px] uppercase tracking-[0.28em] text-accent">{story.title}</span>
-        <h2 className={`font-display text-[1.7rem] leading-[1.12] mt-2 text-balance ${headlineClass}`}>
+        <h2 className={`text-[1.7rem] leading-[1.12] mt-2 text-balance ${titleFont} ${headlineClass}`}>
           {story.headline ?? business.name}
         </h2>
         {story.text && <p className={`text-sm leading-snug mt-2 line-clamp-3 ${textClass}`}>{story.text}</p>}

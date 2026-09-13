@@ -8,11 +8,14 @@ export function SplashIntro({
   logoUrl,
   tagline,
   onDone,
+  variant = 'display',
   durationMs = 1900,
 }: {
   name: string;
   logoUrl?: string;
   tagline?: string;
+  /** 'serif' — под журнальную вёрстку клиента. */
+  variant?: 'display' | 'serif';
   onDone: () => void;
   durationMs?: number;
 }) {
@@ -50,7 +53,9 @@ export function SplashIntro({
         </div>
 
         <h1
-          className="font-display text-3xl tracking-wide text-brand-contrast mt-6 animate-fade-up"
+          className={`text-3xl tracking-wide text-brand-contrast mt-6 animate-fade-up ${
+            variant === 'serif' ? 'font-serif' : 'font-display'
+          }`}
           style={{ animationDelay: '160ms' }}
         >
           {name}

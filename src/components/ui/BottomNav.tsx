@@ -11,13 +11,20 @@ export function BottomNav({
   items,
   active,
   onSelect,
+  variant = 'bar',
 }: {
   items: NavItem[];
   active: string;
   onSelect: (id: string) => void;
+  /** 'floating' — «пилюля» с отступами от краёв вместо панели во всю ширину. */
+  variant?: 'bar' | 'floating';
 }) {
+  const shell =
+    variant === 'floating'
+      ? 'bottom-3 left-3 right-3 rounded-[26px] border border-line/70 px-1.5 pt-2 pb-2 shadow-[0_10px_30px_rgba(0,0,0,0.28)]'
+      : 'bottom-0 left-0 right-0 border-t border-line/60 px-2 pt-2 pb-3';
   return (
-    <nav className="absolute bottom-0 left-0 right-0 z-30 bg-surface/70 backdrop-blur-xl border-t border-line/60 px-2 pt-2 pb-3">
+    <nav className={`absolute z-30 bg-surface/80 backdrop-blur-xl ${shell}`}>
       <div className="flex items-stretch">
         {items.map((item) => {
           const Icon = item.icon;

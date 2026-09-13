@@ -29,7 +29,8 @@
   "style": {
     "preset": "premium",
     "pattern": "petals",
-    "splashTagline": "Авторская кухня"
+    "splashTagline": "Авторская кухня",
+    "layout": "editorial"
   },
   "features": {
     "delivery": true,
@@ -70,8 +71,8 @@
         "title": "Бар",
         "imageUrl": "/clients/cherish/interior-bar.jpg",
         "headline": "Bar & Kitchen",
-        "text": "Винная карта, коктейли и сеты к пиву — соберите свой набор закусок.",
-        "ctaLabel": "Собрать сет к пиву",
+        "text": "Винная карта, коктейли и стейки на гриле — соберите свой стейк под прожарку.",
+        "ctaLabel": "Собрать стейк",
         "ctaTarget": "builder"
       },
       {
@@ -85,73 +86,147 @@
       }
     ],
     "builder": {
-      "title": "Собери сет к пиву",
-      "subtitle": "Отметьте закуски — цена сложится сама",
-      "itemName": "Сет к пиву",
-      "basePrice": 0,
-      "imageUrl": "/clients/cherish/interior-bar.jpg",
+      "title": "Стейк по-вашему",
+      "subtitle": "Отруб, прожарка и гарнир — цена соберётся сама",
+      "itemName": "Стейк по-вашему",
+      "basePrice": 7583,
+      "imageUrl": "/clients/cherish/chicken-cutlets.jpg",
       "steps": [
         {
-          "id": "snacks",
-          "label": "Закуски",
-          "hint": "можно несколько",
-          "type": "multi",
+          "id": "cut",
+          "label": "Отруб",
+          "hint": "выберите одно",
+          "type": "single",
           "options": [
             {
-              "id": "garlic",
-              "label": "Чесночные гарлики",
-              "price": 1983,
-              "hint": "с соусом тар-тар"
+              "id": "salmon",
+              "label": "Стейк из норвежской семги",
+              "price": 0,
+              "hint": "с лимонным ризотто"
             },
             {
-              "id": "pistachio",
-              "label": "Фисташки",
-              "price": 2416
+              "id": "horse",
+              "label": "Стейк из конины",
+              "price": 1603,
+              "hint": "чечевичный салат, вишнёвый соус"
             },
             {
-              "id": "chechil",
-              "label": "Чечил",
-              "price": 2573
+              "id": "beef",
+              "label": "Стейк из вырезки бычка",
+              "price": 3200,
+              "hint": "пюре из печёного чеснока, грибное жу"
             },
             {
-              "id": "bruschetta",
-              "label": "Сырные брускетты",
-              "price": 2850,
-              "hint": "с соусом кимчинез"
+              "id": "horse-rib",
+              "label": "Ребро конины",
+              "price": 4307,
+              "hint": "шпинат с чесноком, грана падано"
             },
             {
-              "id": "wings",
-              "label": "Хрустящие куриные крылья",
-              "price": 4300
+              "id": "ribeye",
+              "label": "Рибай на кости",
+              "price": 17740,
+              "hint": "мраморная говядина"
+            }
+          ]
+        },
+        {
+          "id": "doneness",
+          "label": "Прожарка",
+          "hint": "выберите одно",
+          "type": "single",
+          "options": [
+            {
+              "id": "rare",
+              "label": "Rare",
+              "price": 0,
+              "hint": "с кровью"
             },
             {
-              "id": "shrimp",
-              "label": "Обжаренные розовые креветки",
-              "price": 4726,
-              "hint": "в пряностях и чесноке"
+              "id": "medium-rare",
+              "label": "Medium rare",
+              "price": 0,
+              "hint": "слабая прожарка"
+            },
+            {
+              "id": "medium",
+              "label": "Medium",
+              "price": 0,
+              "hint": "средняя"
+            },
+            {
+              "id": "medium-well",
+              "label": "Medium well",
+              "price": 0,
+              "hint": "почти полная"
+            },
+            {
+              "id": "well",
+              "label": "Well done",
+              "price": 0,
+              "hint": "полная"
+            }
+          ]
+        },
+        {
+          "id": "side",
+          "label": "Гарнир",
+          "hint": "выберите одно",
+          "type": "single",
+          "options": [
+            {
+              "id": "none",
+              "label": "Без гарнира",
+              "price": 0,
+              "hint": "как в меню"
+            },
+            {
+              "id": "rice",
+              "label": "Рис припущенный",
+              "price": 1182
+            },
+            {
+              "id": "buckwheat",
+              "label": "Гречка",
+              "price": 1184
+            },
+            {
+              "id": "fries",
+              "label": "Картофель фри",
+              "price": 1581
+            },
+            {
+              "id": "veg",
+              "label": "Овощи гриль",
+              "price": 2271
             }
           ]
         },
         {
           "id": "sauce",
-          "label": "Соусы",
+          "label": "Соус",
           "hint": "можно до 2",
           "type": "multi",
           "max": 2,
           "options": [
             {
-              "id": "tartar",
-              "label": "Тар-тар",
+              "id": "mushroom",
+              "label": "Грибное жу",
               "price": 0
             },
             {
-              "id": "kimchinez",
-              "label": "Кимчинез",
+              "id": "cherry",
+              "label": "Вишнёвый",
               "price": 0
             },
             {
-              "id": "spicy",
-              "label": "Пикантный",
+              "id": "pepper",
+              "label": "Перечный",
+              "price": 0
+            },
+            {
+              "id": "garlic",
+              "label": "Чесночный",
               "price": 0
             }
           ]
@@ -314,6 +389,15 @@
   ],
   "items": [
     {
+      "id": "chicken-cutlets",
+      "category": "Основные блюда",
+      "name": "Котлетки из цыплёнка на гриле",
+      "desc": "Подаются с ризотто и зелёным маслом",
+      "price": 5176,
+      "imageUrl": "/clients/cherish/chicken-cutlets.jpg",
+      "featured": true
+    },
+    {
       "id": "salad-cherish",
       "category": "Салаты",
       "name": "Овощной Cherish",
@@ -448,15 +532,6 @@
       "name": "Медальоны из конины гриль",
       "desc": "Микс салата, картофель",
       "price": 7786
-    },
-    {
-      "id": "chicken-cutlets",
-      "category": "Основные блюда",
-      "name": "Котлетки из цыплёнка на гриле",
-      "desc": "Подаются с ризотто и зелёным маслом",
-      "price": 5176,
-      "imageUrl": "/clients/cherish/chicken-cutlets.jpg",
-      "featured": true
     },
     {
       "id": "beer-set",
