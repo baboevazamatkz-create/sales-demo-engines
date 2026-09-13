@@ -99,6 +99,11 @@ const PATTERNS: Record<string, { image: string; size: string }> = {
     image: `repeating-conic-gradient(color-mix(in srgb, var(--color-primary) 6%, transparent) 0% 25%, transparent 0% 50%)`,
     size: '44px 44px',
   },
+  // Ромбы — как чёрно-белый пол в бистро.
+  diamonds: {
+    image: `repeating-conic-gradient(from 45deg, color-mix(in srgb, var(--color-primary) 7%, transparent) 0% 25%, transparent 0% 50%)`,
+    size: '38px 38px',
+  },
   // Ровная сетка — для нейтральных, «городских» брендов.
   grid: {
     image: `linear-gradient(color-mix(in srgb, var(--color-accent) 8%, transparent) 1px, transparent 1px),

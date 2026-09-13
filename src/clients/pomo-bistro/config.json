@@ -1,0 +1,570 @@
+{
+  "clientId": "pomo-bistro",
+  "niche": "cafe-restaurant",
+  "business": {
+    "name": "POMO bistro",
+    "tagline": "Современное бистро в Самале: завтраки, ужины и вино",
+    "logoUrl": "/clients/pomo-bistro/logo.png",
+    "heroImageUrl": "/clients/pomo-bistro/facade-day.jpg",
+    "address": "мкр. Самал-2, 43",
+    "etaLabel": "20–30 мин",
+    "hoursLabel": "Ежедневно 8:00 – 1:00",
+    "currency": "₸"
+  },
+  "theme": {
+    "mood": "light",
+    "primary": "#600000",
+    "primarySoft": "#e8c9a0",
+    "primaryContrast": "#fdf6ea",
+    "accent": "#a8721f",
+    "imageGradientFrom": "#f0e3cf",
+    "imageGradientTo": "#e6cdc4",
+    "bg": "#f7f1e7",
+    "surface": "#ffffff",
+    "surfaceMuted": "#f1e8da",
+    "textPrimary": "#23181a",
+    "textMuted": "#6e6159",
+    "border": "#e6dac8"
+  },
+  "style": {
+    "preset": "premium",
+    "pattern": "diamonds",
+    "splashTagline": "Breakfast · Lunch · Dinner · Wine"
+  },
+  "features": {
+    "delivery": false,
+    "pickup": true,
+    "tableOrder": true
+  },
+  "modules": {
+    "stories": [
+      {
+        "id": "hello",
+        "title": "POMO bistro",
+        "imageUrl": "/clients/pomo-bistro/facade-day.jpg",
+        "headline": "Бистро на Самал-2",
+        "text": "Завтраки, обеды, ужины и вино — каждый день с 8:00 до 1:00.",
+        "ctaLabel": "Смотреть меню",
+        "ctaTarget": "menu"
+      },
+      {
+        "id": "crepe",
+        "title": "Crêpe to go",
+        "imageUrl": "/clients/pomo-bistro/crepe-plate.jpg",
+        "headline": "Французские крепы навынос",
+        "text": "В фирменной упаковке — можно забрать с собой.",
+        "ctaLabel": "Смотреть меню",
+        "ctaTarget": "menu"
+      },
+      {
+        "id": "breakfast",
+        "title": "Завтраки",
+        "imageUrl": "/clients/pomo-bistro/breakfast-table.jpg",
+        "headline": "Завтраки с 08:00",
+        "text": "Скрембл, френч тост и каши — с кофе на зерне «Сварщицы Екатерины».",
+        "ctaLabel": "Собрать свой кофе",
+        "ctaTarget": "builder"
+      },
+      {
+        "id": "interior",
+        "title": "Интерьер",
+        "imageUrl": "/clients/pomo-bistro/interior-pink.jpg",
+        "headline": "Интерьер, в который возвращаются",
+        "text": "Яркие диваны, картины и шахматный пол — работа дизайнера.",
+        "ctaLabel": "Забронировать стол",
+        "ctaTarget": "booking"
+      },
+      {
+        "id": "evening",
+        "title": "Вечер",
+        "imageUrl": "/clients/pomo-bistro/opening-night.jpg",
+        "headline": "Работаем до часу ночи",
+        "text": "Винная карта, коктейли и ужины — вечером у нас особенно хорошо.",
+        "ctaLabel": "Забронировать стол",
+        "ctaTarget": "booking"
+      }
+    ],
+    "builder": {
+      "title": "Собери свой кофе",
+      "subtitle": "Напиток, молоко и сироп — цена пересчитывается сразу",
+      "itemName": "Кофе по-вашему",
+      "basePrice": 1900,
+      "imageUrl": "/clients/pomo-bistro/coffee-cups.jpg",
+      "steps": [
+        {
+          "id": "drink",
+          "label": "Напиток",
+          "hint": "выберите одно",
+          "type": "single",
+          "options": [
+            {
+              "id": "espresso",
+              "label": "Эспрессо",
+              "price": 0,
+              "hint": "40 ml"
+            },
+            {
+              "id": "americano",
+              "label": "Американо",
+              "price": 100,
+              "hint": "300 ml"
+            },
+            {
+              "id": "flatwhite",
+              "label": "Флэт Уайт",
+              "price": 300,
+              "hint": "200 ml"
+            },
+            {
+              "id": "cappuccino",
+              "label": "Капучино",
+              "price": 400,
+              "hint": "300 ml"
+            },
+            {
+              "id": "latte",
+              "label": "Латте",
+              "price": 400,
+              "hint": "300 ml"
+            },
+            {
+              "id": "matcha",
+              "label": "Матча латте",
+              "price": 600,
+              "hint": "300 ml"
+            },
+            {
+              "id": "raf",
+              "label": "Раф",
+              "price": 800,
+              "hint": "300 ml"
+            },
+            {
+              "id": "tonic",
+              "label": "Эспрессо тоник",
+              "price": 1100,
+              "hint": "350 ml"
+            }
+          ]
+        },
+        {
+          "id": "milk",
+          "label": "Молоко",
+          "hint": "выберите одно",
+          "type": "single",
+          "options": [
+            {
+              "id": "regular",
+              "label": "Обычное",
+              "price": 0
+            },
+            {
+              "id": "alt",
+              "label": "Альтернативное",
+              "price": 800,
+              "hint": "миндальное, овсяное, кокосовое"
+            }
+          ]
+        },
+        {
+          "id": "beans",
+          "label": "Зерно",
+          "hint": "выберите одно",
+          "type": "single",
+          "options": [
+            {
+              "id": "classic",
+              "label": "Классическое",
+              "price": 0,
+              "hint": "«Сварщица Екатерина»"
+            },
+            {
+              "id": "decaf",
+              "label": "Декаф",
+              "price": 700,
+              "hint": "без кофеина"
+            }
+          ]
+        },
+        {
+          "id": "syrup",
+          "label": "Сироп",
+          "hint": "по желанию",
+          "type": "multi",
+          "max": 1,
+          "options": [
+            {
+              "id": "syrup",
+              "label": "Добавить сироп",
+              "price": 300
+            }
+          ]
+        }
+      ]
+    },
+    "loyalty": {
+      "title": "Карта гостя",
+      "subtitle": "Штамп за каждый заказ из приложения",
+      "stampsRequired": 6,
+      "rewardLabel": "Кофе в подарок",
+      "demoStamps": 4
+    },
+    "booking": {
+      "title": "Бронь стола",
+      "subtitle": "Летняя терраса и зал — выберите место на схеме",
+      "timeSlots": [
+        "12:00",
+        "13:00",
+        "18:00",
+        "19:00",
+        "20:00",
+        "21:00",
+        "22:00",
+        "23:00"
+      ],
+      "zones": [
+        {
+          "id": "terrace",
+          "name": "Летняя терраса",
+          "hint": "Столики на улице под зонтами",
+          "tables": [
+            {
+              "id": "t1",
+              "label": "Стол 1",
+              "seats": 2,
+              "kind": "table"
+            },
+            {
+              "id": "t2",
+              "label": "Стол 2",
+              "seats": 2,
+              "kind": "table",
+              "busy": true
+            },
+            {
+              "id": "t3",
+              "label": "Стол 3",
+              "seats": 4,
+              "kind": "table"
+            },
+            {
+              "id": "t4",
+              "label": "Стол 4",
+              "seats": 4,
+              "kind": "table"
+            },
+            {
+              "id": "t5",
+              "label": "Стол 5",
+              "seats": 4,
+              "kind": "table",
+              "busy": true
+            },
+            {
+              "id": "t6",
+              "label": "Стол 6",
+              "seats": 6,
+              "kind": "table"
+            }
+          ]
+        },
+        {
+          "id": "hall",
+          "name": "Основной зал",
+          "hint": "Диваны, кресла и барная стойка",
+          "tables": [
+            {
+              "id": "h1",
+              "label": "Стол 1",
+              "seats": 2,
+              "kind": "table"
+            },
+            {
+              "id": "h2",
+              "label": "Стол 2",
+              "seats": 2,
+              "kind": "table"
+            },
+            {
+              "id": "h3",
+              "label": "Стол 3",
+              "seats": 4,
+              "kind": "table",
+              "busy": true
+            },
+            {
+              "id": "h4",
+              "label": "Стол 4",
+              "seats": 4,
+              "kind": "table"
+            },
+            {
+              "id": "h5",
+              "label": "Диван",
+              "seats": 6,
+              "kind": "vip"
+            },
+            {
+              "id": "h6",
+              "label": "Бар 1",
+              "seats": 2,
+              "kind": "vip"
+            },
+            {
+              "id": "h7",
+              "label": "Бар 2",
+              "seats": 2,
+              "kind": "vip"
+            },
+            {
+              "id": "h8",
+              "label": "Большой стол",
+              "seats": 8,
+              "kind": "vip"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "categories": [
+    "Завтраки",
+    "Закуски",
+    "Салаты и супы",
+    "Горячее",
+    "Кофе и напитки",
+    "Детям"
+  ],
+  "items": [
+    {
+      "id": "scramble-mortadella",
+      "category": "Завтраки",
+      "name": "Скрембл с мортаделлой",
+      "desc": "Скрембл, томаты, мортаделла из индейки, лабне, авокадо и тартин",
+      "price": 5000,
+      "imageUrl": "/clients/pomo-bistro/breakfast-table.jpg",
+      "featured": true,
+      "badge": "Хит"
+    },
+    {
+      "id": "scramble-salmon",
+      "category": "Завтраки",
+      "name": "Скрембл с лососем",
+      "desc": "Скрембл, рикотта, лосось, авокадо и тартин",
+      "price": 5200
+    },
+    {
+      "id": "english",
+      "category": "Завтраки",
+      "name": "Английский завтрак",
+      "desc": "На выбор — куриная или говяжья колбаска",
+      "price": 5200
+    },
+    {
+      "id": "halloumi",
+      "category": "Завтраки",
+      "name": "Халуми с креветками",
+      "desc": "Халуми, креветки, брокколи и томаты",
+      "price": 5200
+    },
+    {
+      "id": "french-toast",
+      "category": "Завтраки",
+      "name": "Френч тост",
+      "desc": "Френч тост, взбитый творог и черешня",
+      "price": 3700
+    },
+    {
+      "id": "granola",
+      "category": "Завтраки",
+      "name": "Гранола",
+      "desc": "Гранола, ягоды и йогурт",
+      "price": 4000
+    },
+    {
+      "id": "cheese-plate",
+      "category": "Закуски",
+      "name": "Сырная тарелка",
+      "desc": "Трюфельная рикотта, скаморца, пармезан и бри",
+      "price": 7000
+    },
+    {
+      "id": "meze",
+      "category": "Закуски",
+      "name": "Мезе",
+      "desc": "Хумус, лабне, ромеско и чипсы из лаваша",
+      "price": 5000
+    },
+    {
+      "id": "hummus-shrimp",
+      "category": "Закуски",
+      "name": "Хумус с креветками",
+      "desc": "Хумус, креветки, печёный перец и тартин",
+      "price": 5000
+    },
+    {
+      "id": "dippers",
+      "category": "Закуски",
+      "name": "Дипперы",
+      "desc": "Дипперы, трюфельный соус, пастрами и пармезан",
+      "price": 3800
+    },
+    {
+      "id": "arancini",
+      "category": "Закуски",
+      "name": "Аранчини",
+      "desc": "Аранчини, трюфельный соус и пармезан",
+      "price": 3000
+    },
+    {
+      "id": "caesar-shrimp",
+      "category": "Салаты и супы",
+      "name": "Цезарь с креветками",
+      "desc": "Классический цезарь с обжаренными креветками",
+      "price": 5000
+    },
+    {
+      "id": "caesar-chicken",
+      "category": "Салаты и супы",
+      "name": "Цезарь с курицей",
+      "desc": "Классический цезарь с куриным филе",
+      "price": 4500
+    },
+    {
+      "id": "tomato-stracciatella",
+      "category": "Салаты и супы",
+      "name": "Томаты, страчателла, песто",
+      "desc": "Спелые томаты со страчателлой и соусом песто",
+      "price": 4200
+    },
+    {
+      "id": "okroshka",
+      "category": "Салаты и супы",
+      "name": "Окрошка",
+      "desc": "Холодный летний суп",
+      "price": 3800
+    },
+    {
+      "id": "horse-rib",
+      "category": "Горячее",
+      "name": "Ребро конины",
+      "desc": "Ребро конины, перечный соус и пюре",
+      "price": 8500
+    },
+    {
+      "id": "cod-risotto",
+      "category": "Горячее",
+      "name": "Треска, лимонное ризотто",
+      "desc": "Филе трески с лимонным ризотто",
+      "price": 8400
+    },
+    {
+      "id": "pappardelle",
+      "category": "Горячее",
+      "name": "Паппарделле с креветками",
+      "desc": "Домашняя паста с креветками",
+      "price": 6000
+    },
+    {
+      "id": "cheeseburger",
+      "category": "Горячее",
+      "name": "Чизбургер с пастрами",
+      "desc": "Чизбургер с пастрами из конины",
+      "price": 5700
+    },
+    {
+      "id": "mushroom-burger",
+      "category": "Горячее",
+      "name": "Грибной бургер",
+      "desc": "Грибной бургер с трюфельным соусом",
+      "price": 5700
+    },
+    {
+      "id": "fusilli",
+      "category": "Горячее",
+      "name": "Фузилли, песто, страчателла",
+      "desc": "Паста фузилли с песто и страчателлой",
+      "price": 4800
+    },
+    {
+      "id": "cappuccino",
+      "category": "Кофе и напитки",
+      "name": "Капучино",
+      "desc": "Зерно от «Сварщицы Екатерины»",
+      "price": 2300,
+      "weight": "300 ml",
+      "imageUrl": "/clients/pomo-bistro/coffee-cups.jpg",
+      "featured": true
+    },
+    {
+      "id": "latte",
+      "category": "Кофе и напитки",
+      "name": "Латте",
+      "desc": "Зерно от «Сварщицы Екатерины»",
+      "price": 2300,
+      "weight": "300 ml"
+    },
+    {
+      "id": "raf",
+      "category": "Кофе и напитки",
+      "name": "Раф",
+      "desc": "Мягкий сливочный раф",
+      "price": 2700,
+      "weight": "300 ml"
+    },
+    {
+      "id": "matcha-latte",
+      "category": "Кофе и напитки",
+      "name": "Матча латте",
+      "desc": "Церемониальная матча на молоке",
+      "price": 2500,
+      "weight": "300 ml"
+    },
+    {
+      "id": "lemonade",
+      "category": "Кофе и напитки",
+      "name": "Лимонад вишня-апельсин",
+      "desc": "Фирменный лимонад собственного розлива",
+      "price": 1700,
+      "weight": "350 ml",
+      "imageUrl": "/clients/pomo-bistro/lemonades.jpg",
+      "featured": true
+    },
+    {
+      "id": "cold-brew",
+      "category": "Кофе и напитки",
+      "name": "Колд брю гранат",
+      "desc": "Холодный кофе с гранатом",
+      "price": 2500,
+      "weight": "350 ml"
+    },
+    {
+      "id": "pancakes",
+      "category": "Детям",
+      "name": "Панкейки, нутелла, черешня",
+      "desc": "Из детского меню",
+      "price": 3800
+    },
+    {
+      "id": "kids-sausages",
+      "category": "Детям",
+      "name": "Куриные колбаски, фри, пармезан",
+      "desc": "Из детского меню",
+      "price": 4200
+    },
+    {
+      "id": "kids-soup",
+      "category": "Детям",
+      "name": "Куриный суп с фрикадельками",
+      "desc": "Из детского меню",
+      "price": 2600
+    },
+    {
+      "id": "milkshake",
+      "category": "Детям",
+      "name": "Молочный коктейль",
+      "desc": "Из детского меню",
+      "price": 2000
+    }
+  ]
+}
