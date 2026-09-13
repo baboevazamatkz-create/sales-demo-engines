@@ -81,7 +81,7 @@ export function BuilderScreen({
         <div className="relative p-4">
           <div className="text-white font-display text-lg leading-tight">{builder.itemName}</div>
           <div key={chosenLabels.join()} className="text-white/70 text-[11px] mt-1 leading-snug animate-fade-in">
-            {chosenLabels.filter(Boolean).join(' · ') || 'Выберите начинку'}
+            {chosenLabels.filter(Boolean).join(' · ') || 'Выберите, что положить'}
           </div>
           <AnimatedPrice value={total} currency={currency} className="block text-accent font-semibold text-base mt-2" />
         </div>

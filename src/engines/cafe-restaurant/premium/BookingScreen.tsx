@@ -52,7 +52,7 @@ export function BookingScreen({ booking, businessName }: { booking: BookingModul
       </header>
 
       {/* Зоны */}
-      <div className="flex gap-2 px-5 pb-4 overflow-x-auto no-scrollbar">
+      <div className="flex flex-wrap gap-2 px-5 pb-4">
         {booking.zones.map((z) => (
           <button
             key={z.id}

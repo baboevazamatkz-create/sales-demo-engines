@@ -1,0 +1,540 @@
+{
+  "clientId": "cherish",
+  "niche": "cafe-restaurant",
+  "business": {
+    "name": "Cherish",
+    "tagline": "Bar & Kitchen на Самал-2: авторская кухня и три зала",
+    "logoUrl": "/clients/cherish/logo.png",
+    "heroImageUrl": "/clients/cherish/facade.jpg",
+    "address": "мкр. Самал-2, 36",
+    "etaLabel": "25–40 мин",
+    "hoursLabel": "Ежедневно 12:00 – 00:00",
+    "currency": "₸"
+  },
+  "theme": {
+    "mood": "dark",
+    "primary": "#722430",
+    "primarySoft": "#e9c9a8",
+    "primaryContrast": "#fbf3ea",
+    "accent": "#c98a5e",
+    "imageGradientFrom": "#2a1a1c",
+    "imageGradientTo": "#722430",
+    "bg": "#17100f",
+    "surface": "#211917",
+    "surfaceMuted": "#2b201e",
+    "textPrimary": "#f5ece2",
+    "textMuted": "#a4958a",
+    "border": "#352724"
+  },
+  "style": {
+    "preset": "premium",
+    "pattern": "petals",
+    "splashTagline": "Авторская кухня"
+  },
+  "features": {
+    "delivery": true,
+    "pickup": true,
+    "tableOrder": true
+  },
+  "modules": {
+    "stories": [
+      {
+        "id": "hello",
+        "title": "Cherish",
+        "imageUrl": "/clients/cherish/facade.jpg",
+        "headline": "Ресторан на Самал-2",
+        "text": "Авторская кухня, винная карта и летняя веранда — каждый день с 12:00 до полуночи.",
+        "ctaLabel": "Смотреть меню",
+        "ctaTarget": "menu"
+      },
+      {
+        "id": "terrace",
+        "title": "Веранда",
+        "imageUrl": "/clients/cherish/terrace.jpg",
+        "headline": "Летняя веранда открыта",
+        "text": "Столики на улице под навесом — с цветами и мягким светом.",
+        "ctaLabel": "Забронировать стол",
+        "ctaTarget": "booking"
+      },
+      {
+        "id": "halls",
+        "title": "Три зала",
+        "imageUrl": "/clients/cherish/interior-hall.jpg",
+        "headline": "Три зала от 12 до 20 гостей",
+        "text": "Банкеты, дни рождения и корпоративы — зал можно занять целиком.",
+        "ctaLabel": "Забронировать зал",
+        "ctaTarget": "booking"
+      },
+      {
+        "id": "bar",
+        "title": "Бар",
+        "imageUrl": "/clients/cherish/interior-bar.jpg",
+        "headline": "Bar & Kitchen",
+        "text": "Винная карта, коктейли и сеты к пиву — соберите свой набор закусок.",
+        "ctaLabel": "Собрать сет к пиву",
+        "ctaTarget": "builder"
+      },
+      {
+        "id": "kitchen",
+        "title": "Кухня",
+        "imageUrl": "/clients/cherish/chicken-cutlets.jpg",
+        "headline": "Авторская кухня",
+        "text": "Стейки, рыба и паста — от котлеток на гриле до рибая на кости.",
+        "ctaLabel": "Смотреть меню",
+        "ctaTarget": "menu"
+      }
+    ],
+    "builder": {
+      "title": "Собери сет к пиву",
+      "subtitle": "Отметьте закуски — цена сложится сама",
+      "itemName": "Сет к пиву",
+      "basePrice": 0,
+      "imageUrl": "/clients/cherish/interior-bar.jpg",
+      "steps": [
+        {
+          "id": "snacks",
+          "label": "Закуски",
+          "hint": "можно несколько",
+          "type": "multi",
+          "options": [
+            {
+              "id": "garlic",
+              "label": "Чесночные гарлики",
+              "price": 1983,
+              "hint": "с соусом тар-тар"
+            },
+            {
+              "id": "pistachio",
+              "label": "Фисташки",
+              "price": 2416
+            },
+            {
+              "id": "chechil",
+              "label": "Чечил",
+              "price": 2573
+            },
+            {
+              "id": "bruschetta",
+              "label": "Сырные брускетты",
+              "price": 2850,
+              "hint": "с соусом кимчинез"
+            },
+            {
+              "id": "wings",
+              "label": "Хрустящие куриные крылья",
+              "price": 4300
+            },
+            {
+              "id": "shrimp",
+              "label": "Обжаренные розовые креветки",
+              "price": 4726,
+              "hint": "в пряностях и чесноке"
+            }
+          ]
+        },
+        {
+          "id": "sauce",
+          "label": "Соусы",
+          "hint": "можно до 2",
+          "type": "multi",
+          "max": 2,
+          "options": [
+            {
+              "id": "tartar",
+              "label": "Тар-тар",
+              "price": 0
+            },
+            {
+              "id": "kimchinez",
+              "label": "Кимчинез",
+              "price": 0
+            },
+            {
+              "id": "spicy",
+              "label": "Пикантный",
+              "price": 0
+            }
+          ]
+        }
+      ]
+    },
+    "loyalty": {
+      "title": "Карта гостя",
+      "subtitle": "Штамп за каждый заказ из приложения",
+      "stampsRequired": 6,
+      "rewardLabel": "Десерт в подарок",
+      "demoStamps": 4
+    },
+    "booking": {
+      "title": "Бронь стола и зала",
+      "subtitle": "Веранда, основной зал и три банкетных зала",
+      "timeSlots": [
+        "13:00",
+        "14:00",
+        "18:00",
+        "19:00",
+        "20:00",
+        "21:00",
+        "22:00",
+        "23:00"
+      ],
+      "zones": [
+        {
+          "id": "terrace",
+          "name": "Летняя веранда",
+          "hint": "Столики на улице под навесом",
+          "tables": [
+            {
+              "id": "v1",
+              "label": "Стол 1",
+              "seats": 2,
+              "kind": "table"
+            },
+            {
+              "id": "v2",
+              "label": "Стол 2",
+              "seats": 4,
+              "kind": "table",
+              "busy": true
+            },
+            {
+              "id": "v3",
+              "label": "Стол 3",
+              "seats": 4,
+              "kind": "table"
+            },
+            {
+              "id": "v4",
+              "label": "Стол 4",
+              "seats": 4,
+              "kind": "table"
+            },
+            {
+              "id": "v5",
+              "label": "Стол 5",
+              "seats": 6,
+              "kind": "table"
+            },
+            {
+              "id": "v6",
+              "label": "Стол 6",
+              "seats": 6,
+              "kind": "table",
+              "busy": true
+            }
+          ]
+        },
+        {
+          "id": "hall",
+          "name": "Основной зал",
+          "hint": "У бара и панорамных окон",
+          "tables": [
+            {
+              "id": "h1",
+              "label": "Стол 1",
+              "seats": 2,
+              "kind": "table"
+            },
+            {
+              "id": "h2",
+              "label": "Стол 2",
+              "seats": 2,
+              "kind": "table"
+            },
+            {
+              "id": "h3",
+              "label": "Стол 3",
+              "seats": 4,
+              "kind": "table",
+              "busy": true
+            },
+            {
+              "id": "h4",
+              "label": "Стол 4",
+              "seats": 4,
+              "kind": "table"
+            },
+            {
+              "id": "h5",
+              "label": "Стол 5",
+              "seats": 6,
+              "kind": "table"
+            },
+            {
+              "id": "h6",
+              "label": "Бар 1",
+              "seats": 2,
+              "kind": "vip"
+            },
+            {
+              "id": "h7",
+              "label": "Бар 2",
+              "seats": 2,
+              "kind": "vip"
+            }
+          ]
+        },
+        {
+          "id": "banquet",
+          "name": "Банкетные залы",
+          "hint": "Три зала от 12 до 20 гостей — целиком",
+          "tables": [
+            {
+              "id": "b1",
+              "label": "Зал 1",
+              "seats": 12,
+              "kind": "vip"
+            },
+            {
+              "id": "b2",
+              "label": "Зал 2",
+              "seats": 16,
+              "kind": "vip",
+              "busy": true
+            },
+            {
+              "id": "b3",
+              "label": "Зал 3",
+              "seats": 20,
+              "kind": "vip"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "categories": [
+    "Салаты",
+    "Супы",
+    "Горячие закуски",
+    "Основные блюда",
+    "К пиву",
+    "Десерты",
+    "На компанию"
+  ],
+  "items": [
+    {
+      "id": "salad-cherish",
+      "category": "Салаты",
+      "name": "Овощной Cherish",
+      "desc": "Черри, корнишон, перец, брокколи, цветная капуста, оливковая заправка",
+      "price": 3044,
+      "imageUrl": "/clients/cherish/salad-vegetable.jpg",
+      "featured": true
+    },
+    {
+      "id": "caesar",
+      "category": "Салаты",
+      "name": "Цезарь",
+      "desc": "Филе цыплёнка, айсберг, черри, яйцо перепёлки, гренки, грана падано",
+      "price": 4340,
+      "imageUrl": "/clients/cherish/caesar.jpg",
+      "featured": true,
+      "badge": "Хит"
+    },
+    {
+      "id": "burre",
+      "category": "Салаты",
+      "name": "Бурре",
+      "desc": "Вырезка конины, руккола, шпинат, черри, яйцо перепёлки, айоли, имбирный соус",
+      "price": 5346
+    },
+    {
+      "id": "greek",
+      "category": "Салаты",
+      "name": "Греческий",
+      "desc": "Фета, томаты, корнишон, перец, лук, оливковое масло, каламата",
+      "price": 4573
+    },
+    {
+      "id": "beet",
+      "category": "Салаты",
+      "name": "Печёная свёкла",
+      "desc": "Шампиньоны, мягкий сыр, руккола, грана падано, фирменный соус",
+      "price": 4715
+    },
+    {
+      "id": "borsch",
+      "category": "Супы",
+      "name": "Борщ",
+      "desc": "Классический борщ со сметаной и зеленью",
+      "price": 3970,
+      "imageUrl": "/clients/cherish/borsch.jpg",
+      "featured": true
+    },
+    {
+      "id": "tom-yam",
+      "category": "Супы",
+      "name": "Том ям с креветками",
+      "desc": "Острый тайский суп на кокосовом молоке",
+      "price": 5790
+    },
+    {
+      "id": "ukha",
+      "category": "Супы",
+      "name": "Уха из трёх видов рыбы",
+      "desc": "Наваристая уха по-домашнему",
+      "price": 3570
+    },
+    {
+      "id": "lentil",
+      "category": "Супы",
+      "name": "Суп-крем из красной чечевицы",
+      "desc": "Чеддер, гренки, лимон",
+      "price": 2960
+    },
+    {
+      "id": "julienne",
+      "category": "Горячие закуски",
+      "name": "Грибной жульен с креветками",
+      "desc": "Моцарелла, сливочный соус, запекаем в кокотнице",
+      "price": 3973,
+      "imageUrl": "/clients/cherish/julienne.jpg",
+      "featured": true
+    },
+    {
+      "id": "tiger-shrimp",
+      "category": "Горячие закуски",
+      "name": "Тигровые креветки на сковороде",
+      "desc": "Чеснок, сливочное масло, петрушка, чили перец",
+      "price": 6430
+    },
+    {
+      "id": "wings",
+      "category": "Горячие закуски",
+      "name": "Хрустящие куриные крылья",
+      "desc": "С пикантным соусом",
+      "price": 4300
+    },
+    {
+      "id": "nuggets",
+      "category": "Горячие закуски",
+      "name": "Наггетсы из филе цыплёнка",
+      "desc": "Соус коктейль и соус тар-тар",
+      "price": 3705
+    },
+    {
+      "id": "ribeye",
+      "category": "Основные блюда",
+      "name": "Рибай на кости",
+      "desc": "Стейк на кости из мраморной говядины",
+      "price": 25323,
+      "badge": "Премиум"
+    },
+    {
+      "id": "horse-rib",
+      "category": "Основные блюда",
+      "name": "Ребро конины",
+      "desc": "Шпинат с чесноком, грана падано",
+      "price": 11890
+    },
+    {
+      "id": "beef-steak",
+      "category": "Основные блюда",
+      "name": "Стейк из вырезки бычка",
+      "desc": "Пюре из печёного чеснока, грибное жу",
+      "price": 10783
+    },
+    {
+      "id": "salmon-steak",
+      "category": "Основные блюда",
+      "name": "Стейк из норвежской семги",
+      "desc": "С лимонным ризотто",
+      "price": 7583
+    },
+    {
+      "id": "horse-medallions",
+      "category": "Основные блюда",
+      "name": "Медальоны из конины гриль",
+      "desc": "Микс салата, картофель",
+      "price": 7786
+    },
+    {
+      "id": "chicken-cutlets",
+      "category": "Основные блюда",
+      "name": "Котлетки из цыплёнка на гриле",
+      "desc": "Подаются с ризотто и зелёным маслом",
+      "price": 5176,
+      "imageUrl": "/clients/cherish/chicken-cutlets.jpg",
+      "featured": true
+    },
+    {
+      "id": "beer-set",
+      "category": "К пиву",
+      "name": "Пивной сет на 3 персоны",
+      "desc": "Крылышки, сырные брускетты, чесночные гарлики, чечил, арахис",
+      "price": 10840,
+      "badge": "Сет"
+    },
+    {
+      "id": "pink-shrimp",
+      "category": "К пиву",
+      "name": "Обжаренные розовые креветки",
+      "desc": "В пряностях и чесноке",
+      "price": 4726
+    },
+    {
+      "id": "bruschetta",
+      "category": "К пиву",
+      "name": "Сырные брускетты",
+      "desc": "С соусом кимчинез",
+      "price": 2850
+    },
+    {
+      "id": "chechil",
+      "category": "К пиву",
+      "name": "Чечил",
+      "desc": "Копчёный сыр-косичка",
+      "price": 2573
+    },
+    {
+      "id": "fondant",
+      "category": "Десерты",
+      "name": "Шоколадный фондан",
+      "desc": "С жидкой шоколадной серединой",
+      "price": 4073
+    },
+    {
+      "id": "syrniki",
+      "category": "Десерты",
+      "name": "Сырники",
+      "desc": "С тар-таром из клубники и греческим йогуртом",
+      "price": 3720
+    },
+    {
+      "id": "napoleon",
+      "category": "Десерты",
+      "name": "Наполеон с английским кремом",
+      "desc": "Классический слоёный наполеон",
+      "price": 3200
+    },
+    {
+      "id": "san-sebastian",
+      "category": "Десерты",
+      "name": "Сан Себастьян с карамелью",
+      "desc": "Баскский чизкейк",
+      "price": 3200
+    },
+    {
+      "id": "beshbarmak",
+      "category": "На компанию",
+      "name": "Бешбармак на 5–6 персон",
+      "desc": "Большое блюдо на компанию",
+      "price": 63100
+    },
+    {
+      "id": "meat-mix",
+      "category": "На компанию",
+      "name": "Мясной микс на 7–8 персон",
+      "desc": "Ассорти мяса на большую компанию",
+      "price": 53233
+    },
+    {
+      "id": "fish-plate",
+      "category": "На компанию",
+      "name": "Рыбное плато на 5–6 персон",
+      "desc": "Ассорти рыбы на компанию",
+      "price": 63553
+    }
+  ]
+}

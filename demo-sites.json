@@ -2,6 +2,11 @@
   "_comment": "Живые демо-ссылки. Каждый клиент публикуется в своей папке на GitHub Pages и открывается сразу в приложение, без галереи. Отсюда ссылки берутся для отправки клиенту, и по ним же workflow verify-deploy проверяет, что выкатилась свежая версия.",
   "sites": [
     {
+      "client": "cherish",
+      "name": "Cherish — Bar & Kitchen, Самал-2",
+      "url": "https://baboevazamatkz-create.github.io/sales-demo-engines/cherish/"
+    },
+    {
       "client": "pomo-bistro",
       "name": "POMO bistro — бистро на Самал-2",
       "url": "https://baboevazamatkz-create.github.io/sales-demo-engines/pomo-bistro/"

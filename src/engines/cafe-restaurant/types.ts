@@ -106,7 +106,7 @@ export interface CafeConfig extends BaseClientConfig {
   style?: {
     preset?: 'classic' | 'premium';
     /** Фоновый геометрический орнамент: см. PATTERNS в lib/theme.ts. */
-    pattern?: 'turkish' | 'mountains' | 'checker' | 'diamonds' | 'grid';
+    pattern?: 'turkish' | 'mountains' | 'checker' | 'diamonds' | 'petals' | 'grid';
     /** Текст на сплэш-экране под логотипом. */
     splashTagline?: string;
   };

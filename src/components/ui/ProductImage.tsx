@@ -30,7 +30,7 @@ export function ProductImage({
             textAnchor="middle"
             dominantBaseline="central"
             fontSize="46"
-            className="font-display fill-brand/20"
+            className="font-display fill-accent/40"
           >
             {letter}
           </text>

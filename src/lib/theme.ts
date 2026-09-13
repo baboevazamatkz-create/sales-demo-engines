@@ -99,6 +99,13 @@ const PATTERNS: Record<string, { image: string; size: string }> = {
     image: `repeating-conic-gradient(color-mix(in srgb, var(--color-primary) 6%, transparent) 0% 25%, transparent 0% 50%)`,
     size: '44px 44px',
   },
+  // Лепестки — рассыпанные по фону, под флористику в айдентике.
+  petals: {
+    image: `radial-gradient(ellipse 2.5px 5px at 20% 22%, color-mix(in srgb, var(--color-accent) 24%, transparent) 45%, transparent 55%),
+      radial-gradient(ellipse 5px 2.5px at 72% 58%, color-mix(in srgb, var(--color-accent) 17%, transparent) 45%, transparent 55%),
+      radial-gradient(ellipse 2px 4px at 46% 86%, color-mix(in srgb, var(--color-accent) 14%, transparent) 45%, transparent 55%)`,
+    size: '46px 46px',
+  },
   // Ромбы — как чёрно-белый пол в бистро.
   diamonds: {
     image: `repeating-conic-gradient(from 45deg, color-mix(in srgb, var(--color-primary) 7%, transparent) 0% 25%, transparent 0% 50%)`,
