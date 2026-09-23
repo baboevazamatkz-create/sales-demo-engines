@@ -129,7 +129,7 @@
   </div>
 </div>
 
-<input type="file" id="camera" accept="image/*" capture="environment" hidden>
+<input type="file" id="camera" accept="image/*" hidden>
 <input type="file" id="importFile" accept=".xlsx,.xls" hidden>
 
 <dialog id="confirmDlg">
@@ -190,6 +190,23 @@ let tab = 'stock';
 let db = null;
 let sample = null;
 let downloads = null;
+let imagesOk = null; // null -- ещё не известно
+
+// Каждая возможность подключается сама по себе: медленная база не должна
+// держать кнопку скана, и наоборот.
+const useCap = (name) => (window.claude ? window.claude.use(name).catch(() => null) : Promise.resolve(null));
+const samplePromise = useCap('sample').then(async (s) => {
+  sample = s;
+  if (s) {
+    const caps = await s.limits().catch(() => null);
+    imagesOk = !!caps?.images;
+  } else {
+    imagesOk = false;
+  }
+  setStatus();
+  return s;
+});
+const downloadsPromise = useCap('downloads').then((d) => { downloads = d; setStatus(); return d; });
 
 function loadLocal() {
   try { return JSON.parse(localStorage.getItem(LOCAL_KEY)) || []; } catch { return []; }
@@ -202,10 +219,7 @@ const newId = () => 'e' + Date.now().toString(36) + Math.random().toString(36).s
 // --- возможности страницы ------------------------------------------------
 
 (async function connect() {
-  if (!window.claude) { setStatus(); return; }
-  [db, sample, downloads] = await Promise.all(
-    ['db', 'sample', 'downloads'].map((n) => window.claude.use(n).catch(() => null)),
-  );
+  db = await useCap('db');
   if (db) {
     db.collection('entries').orderBy('date').onSnapshot(
       (snap) => {
@@ -219,7 +233,8 @@ const newId = () => 'e' + Date.now().toString(36) + Math.random().toString(36).s
 })();
 
 function setStatus() {
-  $('status').textContent = db ? '' : 'База хранится только в этом браузере';
+  const ai = imagesOk === null ? 'подключаю…' : imagesOk ? 'готово' : 'недоступно здесь';
+  $('status').textContent = `Распознавание: ${ai} · База: ${db ? 'общая' : 'в этом браузере'}`;
   $('storeHint').textContent = db
     ? 'База хранится на странице и доступна с любого устройства, где открыта эта ссылка.'
     : 'База хранится только в этом браузере. Периодически скачивайте Excel.';
@@ -481,11 +496,14 @@ const SAMPLE_ERRORS = {
   rate_limited: 'Слишком много запросов. Подождите немного',
   session_expired: 'Войдите в claude.ai заново',
   invalid_json: 'Ответ не разобран. Попробуйте ещё раз',
+  no_sample: 'Распознавание работает только на claude.ai (в браузере, после входа)',
 };
 
 $('scanBtn').addEventListener('click', () => {
-  if (!sample) {
-    toast('Распознавание здесь недоступно — добавьте вручную', true);
+  if (imagesOk === false) {
+    toast(sample
+      ? 'Здесь нельзя отправить фото Claude. Откройте ссылку в браузере на claude.ai'
+      : 'Распознавание работает только на claude.ai (в браузере, после входа)', true);
     openConfirm([undefined], null);
     return;
   }
@@ -499,19 +517,42 @@ $('camera').addEventListener('change', async () => {
   const url = URL.createObjectURL(file);
   setBusy(true);
   try {
-    const raw = await sample.json(PROMPT, { images: [file], cache: false });
+    // Кнопку могли нажать, пока Claude ещё подключался.
+    const s = await samplePromise;
+    if (!s || !imagesOk) {
+      throw { code: s ? 'images_unavailable' : 'no_sample' };
+    }
+    const raw = await s.json(PROMPT, { images: [await toJpeg(file)], cache: false });
     const items = cleanItems(raw);
     if (!items.length) toast('Материал не распознан — введите вручную', true);
     openConfirm(items.length ? items : [undefined], url);
   } catch (err) {
     URL.revokeObjectURL(url);
     if (err?.code !== 'cancelled') {
-      toast(SAMPLE_ERRORS[err?.code] || 'Не удалось распознать. Попробуйте ещё раз', true);
+      toast(SAMPLE_ERRORS[err?.code] || `Не удалось распознать (${err?.code || err?.message || 'ошибка'})`, true);
+      if (['no_sample', 'images_unavailable', 'not_granted'].includes(err?.code)) openConfirm([undefined], null);
     }
   } finally {
     setBusy(false);
   }
 });
+
+// Фото с iPhone бывает в HEIC, который Claude не принимает: перекодируем
+// в JPEG и заодно уменьшаем. Не вышло -- отправляем как есть.
+async function toJpeg(file) {
+  try {
+    const bmp = await createImageBitmap(file);
+    const k = Math.min(1, 1600 / Math.max(bmp.width, bmp.height));
+    const c = document.createElement('canvas');
+    c.width = Math.round(bmp.width * k);
+    c.height = Math.round(bmp.height * k);
+    c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
+    const blob = await new Promise((r) => c.toBlob(r, 'image/jpeg', 0.88));
+    return blob || file;
+  } catch {
+    return file;
+  }
+}
 
 const scanIcon = $('scanBtn').querySelector('svg');
 function setBusy(busy) {
@@ -542,13 +583,19 @@ $('exportBtn').addEventListener('click', async () => {
   XLSX.utils.book_append_sheet(wb, s1, 'Остатки');
   XLSX.utils.book_append_sheet(wb, s2, 'Журнал');
   const filename = `materials-${new Date().toISOString().slice(0, 10)}.xlsx`;
-  if (!downloads) return XLSX.writeFile(wb, filename);
   const data = new Blob([XLSX.write(wb, { type: 'array', bookType: 'xlsx' })]);
+  const d = downloads || await downloadsPromise;
+  if (!d) {
+    // Вне claude.ai (например, файл открыт напрямую) -- обычное скачивание.
+    try { XLSX.writeFile(wb, filename); } catch { /* ниже подсказка */ }
+    toast('Если файл не скачался — откройте страницу на claude.ai в браузере', true);
+    return;
+  }
   try {
-    await downloads.save({ filename, data });
+    await d.save({ filename, data });
     toast('Excel сохранён');
   } catch (err) {
-    if (err?.code !== 'declined') toast('Не удалось сохранить файл', true);
+    if (err?.code !== 'declined') toast(`Не удалось сохранить файл (${err?.code || 'ошибка'})`, true);
   }
 });
 
