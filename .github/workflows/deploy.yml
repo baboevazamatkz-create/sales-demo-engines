@@ -68,6 +68,11 @@ jobs:
           echo "Содержимое сайта:"
           ls -1 site
 
+      - name: Добавить учёт материалов
+        run: |
+          mkdir -p site/materials
+          cp materials/index.html materials/manifest.webmanifest materials/icon.svg materials/xlsx.full.min.js site/materials/
+
       - name: Disable Jekyll processing
         run: touch site/.nojekyll
 

@@ -1,0 +1,23 @@
+# Cloudflare Worker: посредник между приложением учёта материалов и ИИ.
+#
+# Ключ Anthropic и код доступа лежат только здесь, секретами:
+#   npx wrangler secret put ANTHROPIC_API_KEY
+#   npx wrangler secret put ACCESS_CODE
+# Развёртывание и настройка: см. materials/README.md
+name = "materials-scan"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+
+[vars]
+# Модель с поддержкой изображений.
+MODEL = "claude-haiku-4-5-20251001"
+# Сколько снимков можно распознать за сутки. Работает только если
+# подключено хранилище SCAN_QUOTA (см. README).
+DAILY_LIMIT = "300"
+
+# Счётчик распознаваний. Раскомментируйте после
+#   npx wrangler kv namespace create SCAN_QUOTA
+# и подставьте выданный id. Без него воркер работает, но без ограничения.
+# [[kv_namespaces]]
+# binding = "SCAN_QUOTA"
+# id = "сюда-id-из-команды-выше"
