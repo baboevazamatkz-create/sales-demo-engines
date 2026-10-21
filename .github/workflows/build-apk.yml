@@ -1,4 +1,4 @@
-name: Build APK (craft_post)
+name: Build APK + Web (craft_post)
 
 on:
   workflow_dispatch:
@@ -32,3 +32,20 @@ jobs:
         with:
           name: craft-post-apk
           path: craft_post/build/app/outputs/flutter-apk/app-release.apk
+
+  web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: craft_post
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with: { channel: stable, cache: true }
+      - run: ./tool/setup_web.sh
+      - run: flutter pub get
+      - run: flutter build web --release --base-href /sales-demo-engines/craft/ --no-web-resources-cdn
+      - uses: actions/upload-artifact@v4
+        with:
+          name: craft-post-web
+          path: craft_post/build/web
