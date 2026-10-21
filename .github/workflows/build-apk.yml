@@ -21,7 +21,13 @@ jobs:
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter test
-      - run: flutter build apk --release
+      # Загрузка Gradle/NDK иногда обрывается — повторяем до 3 раз.
+      - run: |
+          for i in 1 2 3; do
+            flutter build apk --release && exit 0
+            echo "Сборка не удалась (попытка $i), повтор"; sleep 10
+          done
+          exit 1
       - uses: actions/upload-artifact@v4
         with:
           name: craft-post-apk
