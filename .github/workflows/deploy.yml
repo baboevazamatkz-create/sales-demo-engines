@@ -68,21 +68,6 @@ jobs:
           echo "Содержимое сайта:"
           ls -1 site
 
-      # Приложение CRAFT Посты (Flutter) — отдельной папкой /craft/.
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-          cache: true
-
-      - name: Собрать CRAFT Посты (веб-версия)
-        working-directory: craft_post
-        run: |
-          ./tool/setup_web.sh
-          flutter pub get
-          flutter build web --release --base-href "$BASE_PATH/craft/" --no-web-resources-cdn
-          mkdir -p ../site/craft
-          cp -r build/web/* ../site/craft/
-
       - name: Disable Jekyll processing
         run: touch site/.nojekyll
 
