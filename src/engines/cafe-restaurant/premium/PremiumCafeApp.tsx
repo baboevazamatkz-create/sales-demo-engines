@@ -5,8 +5,10 @@ import { BottomNav, type NavItem } from '@/components/ui/BottomNav';
 import { SplashIntro } from '@/components/ui/SplashIntro';
 import { HomeScreen } from './HomeScreen';
 import { EditorialHome } from './EditorialHome';
+import { BlocksHome } from './BlocksHome';
 import { MenuScreen } from './MenuScreen';
 import { EditorialMenu } from './EditorialMenu';
+import { BlocksMenu } from './BlocksMenu';
 import { ItemSheet } from './ItemSheet';
 import { BuilderScreen, type BuiltItem } from './BuilderScreen';
 import { LoyaltyScreen } from './LoyaltyScreen';
@@ -68,8 +70,11 @@ export function PremiumCafeApp({ config }: { config: CafeConfig }) {
   const cart = useCart<CafeCartMeta>();
   const cartTotal = cart.items.reduce((sum, line) => sum + line.qty * line.meta.price, 0);
 
-  /** Вёрстка оболочки: карточная по умолчанию, журнальная — по конфигу. */
-  const editorial = config.style?.layout === 'editorial';
+  /** Вёрстка оболочки: карточная по умолчанию, журнальная или блочная —
+   *  по конфигу. */
+  const layout = config.style?.layout ?? 'cards';
+  const editorial = layout === 'editorial';
+  const blocks = layout === 'blocks';
 
   const stories = config.modules?.stories ?? [];
   const builder = config.modules?.builder;
@@ -143,7 +148,22 @@ export function PremiumCafeApp({ config }: { config: CafeConfig }) {
 
       <div className="h-full">
         {tab === 'home' &&
-          (editorial ? (
+          (blocks ? (
+            <BlocksHome
+              config={config}
+              stamps={stamps}
+              onSelectItem={setSheetItem}
+              onOpenStory={setStoryIndex}
+              onStoryCta={openStoryTarget}
+              onOpenBuilder={builder ? () => setTab('builder') : undefined}
+              onOpenLoyalty={loyalty ? () => setTab('loyalty') : undefined}
+              onOpenBooking={booking ? () => setTab('booking') : undefined}
+              onOpenCategory={(category) => {
+                setActiveCategory(category);
+                setTab('menu');
+              }}
+            />
+          ) : editorial ? (
             <EditorialHome
               config={config}
               onSelectItem={setSheetItem}
@@ -170,7 +190,9 @@ export function PremiumCafeApp({ config }: { config: CafeConfig }) {
           ))}
 
         {tab === 'menu' &&
-          (editorial ? (
+          (blocks ? (
+            <BlocksMenu config={config} onSelectItem={setSheetItem} />
+          ) : editorial ? (
             <EditorialMenu config={config} activeCategory={activeCategory} onSelectItem={setSheetItem} />
           ) : (
             <MenuScreen
@@ -234,7 +256,7 @@ export function PremiumCafeApp({ config }: { config: CafeConfig }) {
         items={navItems}
         active={tab}
         onSelect={(id) => setTab(id as Tab)}
-        variant={editorial ? 'floating' : 'bar'}
+        variant={editorial ? 'floating' : blocks ? 'blocks' : 'bar'}
       />
     </div>
   );

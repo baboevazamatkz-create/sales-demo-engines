@@ -18,7 +18,7 @@
     "primary": "#0b4429",
     "primarySoft": "#dfe9df",
     "primaryContrast": "#f7f3ea",
-    "accent": "#a97a1b",
+    "accent": "#8f6412",
     "imageGradientFrom": "#e4ece2",
     "imageGradientTo": "#f4e7cd",
     "bg": "#f8f4ec",
@@ -31,7 +31,8 @@
   "style": {
     "preset": "premium",
     "pattern": "checker",
-    "splashTagline": "Утро начинается правильно"
+    "splashTagline": "Утро начинается правильно",
+    "layout": "blocks"
   },
   "features": {
     "delivery": false,
@@ -99,9 +100,21 @@
           "hint": "приготовим так, как любите",
           "type": "single",
           "options": [
-            { "id": "scramble", "label": "Скрэмбл", "price": 0 },
-            { "id": "omelette", "label": "Омлет", "price": 0 },
-            { "id": "fried", "label": "Глазунья", "price": 0 }
+            {
+              "id": "scramble",
+              "label": "Скрэмбл",
+              "price": 0
+            },
+            {
+              "id": "omelette",
+              "label": "Омлет",
+              "price": 0
+            },
+            {
+              "id": "fried",
+              "label": "Глазунья",
+              "price": 0
+            }
           ]
         },
         {
@@ -110,10 +123,27 @@
           "hint": "выберите одно",
           "type": "single",
           "options": [
-            { "id": "none", "label": "Без добавки", "price": 0, "hint": "салат, черри, огурцы и тартин" },
-            { "id": "ham", "label": "Домашняя ветчина из говядины", "price": 600 },
-            { "id": "pastrami", "label": "Пастрами из конины", "price": 800 },
-            { "id": "salmon", "label": "Подкопчённый лосось", "price": 1200 }
+            {
+              "id": "none",
+              "label": "Без добавки",
+              "price": 0,
+              "hint": "салат, черри, огурцы и тартин"
+            },
+            {
+              "id": "ham",
+              "label": "Домашняя ветчина из говядины",
+              "price": 600
+            },
+            {
+              "id": "pastrami",
+              "label": "Пастрами из конины",
+              "price": 800
+            },
+            {
+              "id": "salmon",
+              "label": "Подкопчённый лосось",
+              "price": 1200
+            }
           ]
         }
       ]
@@ -128,19 +158,60 @@
     "booking": {
       "title": "Бронь стола",
       "subtitle": "Летняя веранда с панорамным видом и основной зал",
-      "timeSlots": ["09:00", "10:00", "11:00", "13:00", "14:00", "18:00", "19:00", "20:00"],
+      "timeSlots": [
+        "09:00",
+        "10:00",
+        "11:00",
+        "13:00",
+        "14:00",
+        "18:00",
+        "19:00",
+        "20:00"
+      ],
       "zones": [
         {
           "id": "veranda",
           "name": "Летняя веранда",
           "hint": "Столики на улице, панорамный вид",
           "tables": [
-            { "id": "v1", "label": "Стол 1", "seats": 2, "kind": "table" },
-            { "id": "v2", "label": "Стол 2", "seats": 2, "kind": "table", "busy": true },
-            { "id": "v3", "label": "Стол 3", "seats": 4, "kind": "table" },
-            { "id": "v4", "label": "Стол 4", "seats": 4, "kind": "table" },
-            { "id": "v5", "label": "Стол 5", "seats": 4, "kind": "table", "busy": true },
-            { "id": "v6", "label": "Стол 6", "seats": 6, "kind": "table" }
+            {
+              "id": "v1",
+              "label": "Стол 1",
+              "seats": 2,
+              "kind": "table"
+            },
+            {
+              "id": "v2",
+              "label": "Стол 2",
+              "seats": 2,
+              "kind": "table",
+              "busy": true
+            },
+            {
+              "id": "v3",
+              "label": "Стол 3",
+              "seats": 4,
+              "kind": "table"
+            },
+            {
+              "id": "v4",
+              "label": "Стол 4",
+              "seats": 4,
+              "kind": "table"
+            },
+            {
+              "id": "v5",
+              "label": "Стол 5",
+              "seats": 4,
+              "kind": "table",
+              "busy": true
+            },
+            {
+              "id": "v6",
+              "label": "Стол 6",
+              "seats": 6,
+              "kind": "table"
+            }
           ]
         },
         {
@@ -148,20 +219,64 @@
           "name": "Основной зал",
           "hint": "У панорамных окон и за барной стойкой",
           "tables": [
-            { "id": "h1", "label": "Стол 1", "seats": 2, "kind": "table" },
-            { "id": "h2", "label": "Стол 2", "seats": 2, "kind": "table" },
-            { "id": "h3", "label": "Стол 3", "seats": 4, "kind": "table", "busy": true },
-            { "id": "h4", "label": "Стол 4", "seats": 4, "kind": "table" },
-            { "id": "h5", "label": "Стол 5", "seats": 6, "kind": "table" },
-            { "id": "h6", "label": "Бар 1", "seats": 2, "kind": "vip" },
-            { "id": "h7", "label": "Бар 2", "seats": 2, "kind": "vip" },
-            { "id": "h8", "label": "Диван", "seats": 8, "kind": "vip" }
+            {
+              "id": "h1",
+              "label": "Стол 1",
+              "seats": 2,
+              "kind": "table"
+            },
+            {
+              "id": "h2",
+              "label": "Стол 2",
+              "seats": 2,
+              "kind": "table"
+            },
+            {
+              "id": "h3",
+              "label": "Стол 3",
+              "seats": 4,
+              "kind": "table",
+              "busy": true
+            },
+            {
+              "id": "h4",
+              "label": "Стол 4",
+              "seats": 4,
+              "kind": "table"
+            },
+            {
+              "id": "h5",
+              "label": "Стол 5",
+              "seats": 6,
+              "kind": "table"
+            },
+            {
+              "id": "h6",
+              "label": "Бар 1",
+              "seats": 2,
+              "kind": "vip"
+            },
+            {
+              "id": "h7",
+              "label": "Бар 2",
+              "seats": 2,
+              "kind": "vip"
+            },
+            {
+              "id": "h8",
+              "label": "Диван",
+              "seats": 8,
+              "kind": "vip"
+            }
           ]
         }
       ]
     }
   },
-  "categories": ["Завтраки", "Комбо до 12:00"],
+  "categories": [
+    "Завтраки",
+    "Комбо до 12:00"
+  ],
   "items": [
     {
       "id": "main-salmon",

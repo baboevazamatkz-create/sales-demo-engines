@@ -63,6 +63,26 @@ body {
   color: var(--color-text);
 }
 
+/* Фокус виден с клавиатуры, но не подсвечивается на тач-тапах. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+button,
+[role='button'],
+a[href],
+label[for] {
+  cursor: pointer;
+}
+
+/* Убирает 300-миллисекундную задержку тапа на мобильных. */
+button,
+[role='button'] {
+  touch-action: manipulation;
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

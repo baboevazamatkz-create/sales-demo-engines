@@ -16,13 +16,17 @@ export function BottomNav({
   items: NavItem[];
   active: string;
   onSelect: (id: string) => void;
-  /** 'floating' — «пилюля» с отступами от краёв вместо панели во всю ширину. */
-  variant?: 'bar' | 'floating';
+  /** 'floating' — «пилюля» с отступами от краёв, 'blocks' — активная
+   *  вкладка подсвечена сплошным блоком вместо подчёркивания. */
+  variant?: 'bar' | 'floating' | 'blocks';
 }) {
+  const blocks = variant === 'blocks';
   const shell =
     variant === 'floating'
       ? 'bottom-3 left-3 right-3 rounded-[26px] border border-line/70 px-1.5 pt-2 pb-2 shadow-[0_10px_30px_rgba(0,0,0,0.28)]'
-      : 'bottom-0 left-0 right-0 border-t border-line/60 px-2 pt-2 pb-3';
+      : blocks
+        ? 'bottom-0 left-0 right-0 border-t-2 border-brand px-1.5 pt-1.5 pb-2.5'
+        : 'bottom-0 left-0 right-0 border-t border-line/60 px-2 pt-2 pb-3';
   return (
     <nav className={`absolute z-30 bg-surface/80 backdrop-blur-xl ${shell}`}>
       <div className="flex items-stretch">
@@ -33,12 +37,14 @@ export function BottomNav({
             <button
               key={item.id}
               onClick={() => onSelect(item.id)}
-              className="flex-1 flex flex-col items-center gap-1 py-1 relative"
+              className={`flex-1 flex flex-col items-center gap-1 py-1.5 relative ${
+                blocks && isActive ? 'bg-brand' : ''
+              }`}
             >
               <span className="relative">
                 <Icon
                   size={20}
-                  className={isActive ? 'text-accent' : 'text-muted'}
+                  className={isActive ? (blocks ? 'text-brand-contrast' : 'text-accent') : 'text-muted'}
                   strokeWidth={isActive ? 2.2 : 1.7}
                 />
                 {item.badge ? (
@@ -47,10 +53,14 @@ export function BottomNav({
                   </span>
                 ) : null}
               </span>
-              <span className={`text-[10px] ${isActive ? 'text-main font-medium' : 'text-muted'}`}>
+              <span
+                className={`text-[10px] ${
+                  isActive ? (blocks ? 'text-brand-contrast font-medium' : 'text-main font-medium') : 'text-muted'
+                }`}
+              >
                 {item.label}
               </span>
-              {isActive && <span className="absolute -top-2 w-8 h-0.5 rounded-full bg-accent" />}
+              {isActive && !blocks && <span className="absolute -top-2 w-8 h-0.5 rounded-full bg-accent" />}
             </button>
           );
         })}

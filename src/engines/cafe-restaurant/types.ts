@@ -107,8 +107,9 @@ export interface CafeConfig extends BaseClientConfig {
     preset?: 'classic' | 'premium';
     /** Вёрстка premium-оболочки: 'cards' — карточки и плитки (по умолчанию),
      *  'editorial' — журнальная подача: печатное меню, разделы полосами,
-     *  серифная типографика и плавающая навигация. */
-    layout?: 'cards' | 'editorial';
+     *  серифная типографика и плавающая навигация; 'blocks' — мозаика
+     *  плиток, крупный шрифт и плашки сплошного цвета. */
+    layout?: 'cards' | 'editorial' | 'blocks';
     /** Фоновый геометрический орнамент: см. PATTERNS в lib/theme.ts. */
     pattern?: 'turkish' | 'mountains' | 'checker' | 'diamonds' | 'petals' | 'grid';
     /** Текст на сплэш-экране под логотипом. */
