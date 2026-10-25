@@ -7,6 +7,7 @@ import { isStandalone } from '@/lib/platform';
 import { applyBranding } from '@/lib/branding';
 import { setupPwa } from '@/lib/pwa';
 import { AppViewport } from '@/components/ui/AppViewport';
+import { StressSwitch } from '@/dev/StressSwitch';
 
 // A build-time-locked client (VITE_CLIENT=<id> npm run build) skips the
 // gallery entirely and always boots straight into that client — this is
@@ -52,7 +53,12 @@ export default function App() {
   }, [config]);
 
   if (!config) {
-    return <Gallery clients={listClients()} onSelect={selectClient} />;
+    return (
+      <>
+        <Gallery clients={listClients()} onSelect={selectClient} />
+        <StressSwitch active={selectedId} onSelect={selectClient} />
+      </>
+    );
   }
 
   // Ссылка, которую отправляют клиенту (сборка под одного клиента), и
@@ -67,6 +73,17 @@ export default function App() {
       <AppViewport>
         <EngineHost config={config} />
       </AppViewport>
+    );
+  }
+
+  if (import.meta.env.DEV) {
+    return (
+      <>
+        <PhoneFrame>
+          <EngineHost config={config} />
+        </PhoneFrame>
+        <StressSwitch active={selectedId} onSelect={selectClient} />
+      </>
     );
   }
 

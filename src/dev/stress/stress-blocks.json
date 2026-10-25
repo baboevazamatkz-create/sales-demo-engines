@@ -1,0 +1,423 @@
+{
+  "clientId": "stress-blocks",
+  "niche": "cafe-restaurant",
+  "business": {
+    "name": "Кафе-кондитерская «Бал-Қаймақ» на Мендикулова",
+    "tagline": "Завтраки весь день, кофе навынос, летняя веранда с панорамным видом, банкеты до 60 гостей и доставка по всему Медеускому району",
+    "logoUrl": "/clients/cafe-main/logo.png",
+    "heroImageUrl": "/clients/cafe-main/storefront.jpg",
+    "rating": 5,
+    "reviews": 1,
+    "address": "мкр. Самал-2, дом 43, корпус 1, вход со двора, 1 этаж, ТЦ «Алмалы»",
+    "etaLabel": "от 90 минут в час пик",
+    "hoursLabel": "Пн–Чт 08:00–23:00, Пт–Сб 08:00–01:00, Вс 09:00–22:00",
+    "currency": "₸"
+  },
+  "theme": {
+    "mood": "light",
+    "primary": "#0b4429",
+    "primarySoft": "#dfe9df",
+    "primaryContrast": "#f7f3ea",
+    "accent": "#8f6412",
+    "imageGradientFrom": "#e4ece2",
+    "imageGradientTo": "#f4e7cd",
+    "bg": "#f8f4ec",
+    "surface": "#ffffff",
+    "surfaceMuted": "#f1ebe0",
+    "textPrimary": "#1b1a17",
+    "textMuted": "#6d675d",
+    "border": "#e4dccd"
+  },
+  "style": {
+    "preset": "premium",
+    "pattern": "checker",
+    "splashTagline": "СТРЕСС-ТЕСТ ХУДШИМИ ДАННЫМИ",
+    "layout": "blocks"
+  },
+  "features": {
+    "delivery": true,
+    "pickup": true,
+    "tableOrder": true
+  },
+  "modules": {
+    "stories": [
+      {
+        "id": "s1",
+        "title": "Очень длинное название сторис, которое не влезет",
+        "imageUrl": "/clients/cafe-main/storefront.jpg",
+        "headline": "Заголовок кадра, который занимает три строки и всё равно не кончается здесь",
+        "text": "Длинный текст кадра: мы рассказываем про завтраки, веранду, кофе и доставку. мы рассказываем про завтраки, веранду, кофе и доставку. мы рассказываем про завтраки, веранду, кофе и доставку. мы рассказываем про завтраки, веранду, кофе и доставку. ",
+        "ctaLabel": "Забронировать стол на большую компанию",
+        "ctaTarget": "booking"
+      },
+      {
+        "id": "s2",
+        "title": "Б",
+        "imageUrl": "/clients/cafe-main/matcha.jpg"
+      },
+      {
+        "id": "s3",
+        "title": "Комбо",
+        "imageUrl": "/clients/cafe-main/combo-poster.jpg",
+        "headline": "Кофе + сэндвич",
+        "text": "Короткий текст.",
+        "ctaLabel": "В меню",
+        "ctaTarget": "menu"
+      },
+      {
+        "id": "s4",
+        "title": "Без фото",
+        "imageUrl": "/clients/cafe-main/nonexistent-photo.jpg",
+        "headline": "Битая ссылка на картинку",
+        "text": "Файла нет — проверяем, что покажет движок."
+      },
+      {
+        "id": "s5",
+        "title": "Пять",
+        "imageUrl": "/clients/cafe-main/croissant.jpg",
+        "headline": "Пятый кадр"
+      },
+      {
+        "id": "s6",
+        "title": "Шесть",
+        "imageUrl": "/clients/cafe-main/breakfast-edamame.jpg",
+        "headline": "Шестой"
+      },
+      {
+        "id": "s7",
+        "title": "Семь",
+        "imageUrl": "/clients/cafe-main/steak.jpg",
+        "headline": "Седьмой"
+      },
+      {
+        "id": "s8",
+        "title": "Восемь",
+        "imageUrl": "/clients/cafe-main/storefront.jpg",
+        "headline": "Восьмой"
+      }
+    ],
+    "builder": {
+      "title": "Соберите завтрак под себя — основа, добавка, напиток и десерт",
+      "subtitle": "Очень длинный подзаголовок конструктора, который в макете занимал одну строку, а в жизни занимает три",
+      "itemName": "Завтрак, собранный гостем по шагам конструктора",
+      "basePrice": 0,
+      "imageUrl": "/clients/cafe-main/breakfast-salmon.jpg",
+      "steps": [
+        {
+          "id": "base",
+          "label": "Основа завтрака и способ подачи",
+          "hint": "выберите одно",
+          "type": "single",
+          "options": [
+            {
+              "id": "o0",
+              "label": "Тартин на пшеничной закваске",
+              "price": 0,
+              "hint": "в составе"
+            },
+            {
+              "id": "o1",
+              "label": "Круассан",
+              "price": 450
+            },
+            {
+              "id": "o2",
+              "label": "Вафля из кабачка с рикоттой и зеленью",
+              "price": 890,
+              "hint": "готовим 15 минут"
+            },
+            {
+              "id": "o3",
+              "label": "Б",
+              "price": 0
+            },
+            {
+              "id": "o4",
+              "label": "Каша на топлёном молоке с сезонной ягодой и панна-коттой",
+              "price": 1200
+            },
+            {
+              "id": "o5",
+              "label": "Без основы",
+              "price": 0
+            },
+            {
+              "id": "o6",
+              "label": "Гречневые оладьи",
+              "price": 760
+            },
+            {
+              "id": "o7",
+              "label": "Тост",
+              "price": 300
+            },
+            {
+              "id": "o8",
+              "label": "Сырники",
+              "price": 980
+            },
+            {
+              "id": "o9",
+              "label": "Боул",
+              "price": 1100
+            }
+          ]
+        },
+        {
+          "id": "add",
+          "label": "Добавка",
+          "hint": "можно до 3",
+          "type": "multi",
+          "max": 3,
+          "options": [
+            {
+              "id": "a1",
+              "label": "Подкопчённый лосось холодного копчения",
+              "price": 1290000
+            },
+            {
+              "id": "a2",
+              "label": "Пастрами",
+              "price": 800
+            },
+            {
+              "id": "a3",
+              "label": "Без добавки",
+              "price": 0
+            }
+          ]
+        }
+      ]
+    },
+    "loyalty": {
+      "title": "Накопительная карта постоянного гостя заведения",
+      "subtitle": "Штамп за каждый оплаченный заказ, оформленный через приложение",
+      "stampsRequired": 12,
+      "rewardLabel": "Любой напиток из основного меню в подарок",
+      "demoStamps": 0
+    },
+    "booking": {
+      "title": "Бронирование стола, веранды и банкетного зала",
+      "subtitle": "Летняя веранда, основной зал, кальянная комната и банкетный зал на 60 гостей",
+      "timeSlots": [
+        "08:00",
+        "09:00",
+        "10:00",
+        "11:00",
+        "12:00",
+        "13:00",
+        "14:00",
+        "15:00",
+        "16:00",
+        "17:00",
+        "18:00",
+        "19:00",
+        "20:00",
+        "21:00"
+      ],
+      "zones": [
+        {
+          "id": "z1",
+          "name": "Летняя веранда с панорамным видом на горы",
+          "hint": "Работает с мая по октябрь, при дожде закрыта",
+          "tables": [
+            {
+              "id": "t1",
+              "label": "Стол 1",
+              "seats": 2,
+              "kind": "table"
+            }
+          ]
+        },
+        {
+          "id": "z2",
+          "name": "Основной зал",
+          "hint": "",
+          "tables": [
+            {
+              "id": "m1",
+              "label": "Стол 1",
+              "seats": 2,
+              "kind": "table"
+            },
+            {
+              "id": "m2",
+              "label": "Стол 2",
+              "seats": 2,
+              "kind": "table"
+            },
+            {
+              "id": "m3",
+              "label": "Стол 3",
+              "seats": 4,
+              "kind": "table",
+              "busy": true
+            },
+            {
+              "id": "m4",
+              "label": "Стол 4",
+              "seats": 4,
+              "kind": "table"
+            },
+            {
+              "id": "m5",
+              "label": "Стол 5",
+              "seats": 4,
+              "kind": "table"
+            },
+            {
+              "id": "m6",
+              "label": "Стол 6",
+              "seats": 6,
+              "kind": "table",
+              "busy": true
+            },
+            {
+              "id": "m7",
+              "label": "Стол 7",
+              "seats": 6,
+              "kind": "table"
+            },
+            {
+              "id": "m8",
+              "label": "Стол 8",
+              "seats": 8,
+              "kind": "table"
+            },
+            {
+              "id": "m9",
+              "label": "Стол 9",
+              "seats": 10,
+              "kind": "table",
+              "busy": true
+            },
+            {
+              "id": "m10",
+              "label": "Стол 10",
+              "seats": 12,
+              "kind": "table"
+            }
+          ]
+        },
+        {
+          "id": "z3",
+          "name": "Кальянная комната",
+          "hint": "Только для гостей 21+",
+          "tables": [
+            {
+              "id": "k1",
+              "label": "Диван у окна, угловой, с видом на улицу",
+              "seats": 6,
+              "kind": "vip"
+            },
+            {
+              "id": "k2",
+              "label": "К",
+              "seats": 1,
+              "kind": "vip",
+              "busy": true
+            }
+          ]
+        },
+        {
+          "id": "z4",
+          "name": "Банкетный зал на 60 гостей",
+          "hint": "Бронируется целиком",
+          "tables": [
+            {
+              "id": "b1",
+              "label": "Зал целиком",
+              "seats": 60,
+              "kind": "vip"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "categories": [
+    "Завтраки, которые подаём весь день",
+    "Чай",
+    "Сеты и блюда на большую компанию",
+    "Завтраки",
+    "Десерты",
+    "Напитки",
+    "Бар",
+    "Детское меню",
+    "Сезонное предложение осень–зима",
+    "Пустой раздел"
+  ],
+  "items": [
+    {
+      "id": "w1",
+      "category": "Завтраки, которые подаём весь день",
+      "name": "Завтрак «Доброе утро, Алматы» с тартином из нута, слабосолёным лососем и яйцом пашот",
+      "desc": "Тартин из нутового хумуса, слабосолёный лосось, яйцо пашот, микрозелень, вяленые томаты, сливочный сыр и оливковое масло первого отжима. Подаём с пшеничным хлебом на закваске и домашним соусом. Подробнее на cafe-main-almaty-breakfast-delivery.example.kz",
+      "price": 1290000,
+      "imageUrl": "/clients/cafe-main/breakfast-salmon.jpg",
+      "featured": true,
+      "badge": "Новинка сезона — только до конца октября",
+      "weight": "≈ 1 250 г / на 3–4 персоны"
+    },
+    {
+      "id": "w2",
+      "category": "Чай",
+      "name": "Чай",
+      "desc": "",
+      "price": 590
+    },
+    {
+      "id": "w3",
+      "category": "Сеты и блюда на большую компанию",
+      "name": "Сет на 12 персон",
+      "desc": "Без фото и с очень коротким описанием.",
+      "price": 0,
+      "featured": true,
+      "badge": "0 ₸"
+    },
+    {
+      "id": "w4",
+      "category": "Завтраки",
+      "name": "Завтрак 🍳 для своих",
+      "desc": "С эмодзи в названии — так пишут в реальных меню.",
+      "price": 2490,
+      "imageUrl": "/clients/cafe-main/breakfast-village.jpg",
+      "featured": true
+    },
+    {
+      "id": "w5",
+      "category": "Десерты",
+      "name": "Ф",
+      "desc": "Название из одной буквы.",
+      "price": 1
+    },
+    {
+      "id": "w6",
+      "category": "Напитки",
+      "name": "Кофе",
+      "price": 2300,
+      "imageUrl": "/clients/cafe-main/sandwich.jpg"
+    },
+    {
+      "id": "w7",
+      "category": "Бар",
+      "name": "Настойка «Облепиха — розмарин — чёрный перец» двойной выдержки",
+      "desc": "Крепкая.",
+      "price": 4900
+    },
+    {
+      "id": "w8",
+      "category": "Детское меню",
+      "name": "Молочный коктейль",
+      "desc": "Для детей.",
+      "price": 2000
+    },
+    {
+      "id": "w9",
+      "category": "Сезонное предложение осень–зима",
+      "name": "Сезонное",
+      "desc": "Одна позиция в разделе — проверяем склонение.",
+      "price": 3200
+    }
+  ]
+}

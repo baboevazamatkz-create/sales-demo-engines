@@ -1,0 +1,41 @@
+{
+  "clientId": "stress-empty",
+  "niche": "cafe-restaurant",
+  "business": {
+    "name": "Пустое заведение",
+    "logoUrl": "/clients/cafe-main/logo.png",
+    "address": "мкр. Самал-2, дом 43, корпус 1, вход со двора, 1 этаж, ТЦ «Алмалы»",
+    "etaLabel": "от 90 минут в час пик",
+    "hoursLabel": "Пн–Чт 08:00–23:00, Пт–Сб 08:00–01:00, Вс 09:00–22:00",
+    "currency": "₸"
+  },
+  "theme": {
+    "mood": "light",
+    "primary": "#0b4429",
+    "primarySoft": "#dfe9df",
+    "primaryContrast": "#f7f3ea",
+    "accent": "#8f6412",
+    "imageGradientFrom": "#e4ece2",
+    "imageGradientTo": "#f4e7cd",
+    "bg": "#f8f4ec",
+    "surface": "#ffffff",
+    "surfaceMuted": "#f1ebe0",
+    "textPrimary": "#1b1a17",
+    "textMuted": "#6d675d",
+    "border": "#e4dccd"
+  },
+  "style": {
+    "preset": "premium",
+    "pattern": "checker",
+    "splashTagline": "СТРЕСС-ТЕСТ ХУДШИМИ ДАННЫМИ",
+    "layout": "cards"
+  },
+  "features": {
+    "delivery": true,
+    "pickup": true,
+    "tableOrder": true
+  },
+  "modules": {},
+  "categories": [],
+  "items": []
+}
