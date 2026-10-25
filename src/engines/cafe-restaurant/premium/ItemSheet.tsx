@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Minus, Plus } from 'lucide-react';
 import { Sheet } from '@/components/ui/Sheet';
 import { ProductImage } from '@/components/ui/ProductImage';
@@ -17,6 +17,14 @@ export function ItemSheet({
   onAdd: (item: CafeMenuItem, qty: number) => void;
 }) {
   const [qty, setQty] = useState(1);
+  // Шторка уезжает вниз на свою высоту, поэтому блюдо нужно держать в
+  // разметке до конца анимации: иначе контент пропадает в тот же кадр,
+  // высота схлопывается в ноль и уезжать становится нечему.
+  const [shownItem, setShownItem] = useState(item);
+
+  useEffect(() => {
+    if (item) setShownItem(item);
+  }, [item]);
 
   const close = () => {
     setQty(1);
@@ -25,19 +33,19 @@ export function ItemSheet({
 
   return (
     <Sheet open={Boolean(item)} onClose={close}>
-      {item && (
+      {shownItem && (
         <>
           <div className="h-52 shrink-0 relative">
-            <ProductImage src={item.imageUrl} alt={item.name} className="w-full h-full" />
+            <ProductImage src={shownItem.imageUrl} alt={shownItem.name} className="w-full h-full" />
             <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-surface to-transparent" />
           </div>
 
           {/* Без отрицательного отступа: он затягивал первую строку заголовка
               под фото, и та обрезалась границей прокручиваемой области. */}
           <div className="flex-1 overflow-y-auto no-scrollbar px-5 pt-1 pb-2">
-            <h2 className="font-display text-2xl text-main leading-tight text-balance">{item.name}</h2>
-            {item.weight && <div className="text-muted text-xs mt-1.5">{item.weight}</div>}
-            <p className="text-muted text-sm mt-3 leading-relaxed">{item.desc}</p>
+            <h2 className="font-display text-2xl text-main leading-tight text-balance">{shownItem.name}</h2>
+            {shownItem.weight && <div className="text-muted text-xs mt-1.5">{shownItem.weight}</div>}
+            <p className="text-muted text-sm mt-3 leading-relaxed">{shownItem.desc}</p>
           </div>
 
           <div className="p-5 pt-4 border-t border-line flex items-center gap-3">
@@ -61,13 +69,13 @@ export function ItemSheet({
 
             <button
               onClick={() => {
-                onAdd(item, qty);
+                onAdd(shownItem, qty);
                 close();
               }}
               className="flex-1 h-12 rounded-full bg-brand text-brand-contrast text-sm font-semibold flex items-center justify-center gap-2"
             >
               В корзину
-              <AnimatedPrice value={item.price * qty} currency={currency} className="text-accent" />
+              <AnimatedPrice value={shownItem.price * qty} currency={currency} className="text-accent" />
             </button>
           </div>
         </>

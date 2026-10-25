@@ -51,6 +51,13 @@ body {
   --color-text-muted-rgb: 120 113 108;
   --color-line: #e7e5e4;
   --color-line-rgb: 231 229 228;
+  /* Кривые для анимаций. Встроенные ease-* слишком слабые; эти три —
+     канонические: сильный ease-out для появления, ease-in-out для
+     движения по экрану, drawer-кривая для шторок (как в Vaul/Ionic). */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
   --ornament-image:
     radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--color-accent) 22%, transparent) 1.2px, transparent 1.3px),
     repeating-linear-gradient(45deg, color-mix(in srgb, var(--color-accent) 7%, transparent) 0 1px, transparent 1px 22px),
@@ -77,10 +84,46 @@ label[for] {
   cursor: pointer;
 }
 
+/* Отклик на нажатие. Масштабируем отдельным свойством scale, а не
+   transform: иначе :active стирал бы позиционирующий transform у кнопок
+   вроде -translate-x-1/2, и они прыгали бы при нажатии. */
+button,
+[role='button'] {
+  transition: scale 160ms var(--ease-out);
+}
+
+button:active,
+[role='button']:active {
+  scale: 0.97;
+}
+
 /* Убирает 300-миллисекундную задержку тапа на мобильных. */
 button,
 [role='button'] {
   touch-action: manipulation;
+}
+
+/* Шторка снизу: въезжает и уезжает одним и тем же путём. Переход, а не
+   keyframes, — если шторку закрыть и сразу открыть, движение
+   перенацеливается с текущей точки, а не дёргается с нуля. */
+.sheet-panel {
+  transform: translateY(0);
+  transition: transform 400ms var(--ease-drawer);
+}
+
+.sheet-panel[data-closed] {
+  transform: translateY(100%);
+  transition-duration: 260ms;
+}
+
+.sheet-backdrop {
+  opacity: 1;
+  transition: opacity 240ms var(--ease-out);
+}
+
+.sheet-backdrop[data-closed] {
+  opacity: 0;
+  transition-duration: 200ms;
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -136,12 +179,33 @@ button,
   scroll-snap-align: start;
 }
 
+/* Уменьшенное движение — это «меньше и мягче», а не «ничего». Убираем
+   перемещения и бесконечные петли, оставляем проявление: без него
+   смена состояния перестаёт читаться. */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  .animate-fade-up,
+  .animate-scale-in,
+  .animate-stamp-in {
+    animation: fade-in 200ms var(--ease-out) both;
+  }
+
+  .animate-shimmer,
+  .animate-pulse-ring {
+    animation: none;
+  }
+
+  .sheet-panel,
+  .sheet-panel[data-closed] {
+    transform: none;
+    transition: opacity 200ms var(--ease-out);
+  }
+
+  .sheet-panel[data-closed] {
+    opacity: 0;
+  }
+
+  button:active,
+  [role='button']:active {
+    scale: 1;
   }
 }
